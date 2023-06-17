@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoxPusher : MonoBehaviour
+public class PushObstacles : MonoBehaviour
 {
     public float pushForce = 10f;
 
@@ -12,13 +12,17 @@ public class BoxPusher : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Vector2 pushDirection = collision.contacts[0].normal;
-        rb.velocity = pushDirection * pushForce;
-        isBeingPushed = true;
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Vector2 pushDirection = collision.contacts[0].normal;
+            rb.velocity = pushDirection * pushForce;
+            isBeingPushed = true;
+        }
     }
 
     private void OnCollisionStay2D(Collision2D collision)
@@ -36,5 +40,6 @@ public class BoxPusher : MonoBehaviour
         isBeingPushed = false;
     }
 }
+
 
 
