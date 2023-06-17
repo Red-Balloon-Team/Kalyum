@@ -1,38 +1,99 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class TextBoxManager : MonoBehaviour
 {
+    [SerializeField] public float typeSpeed;
+    
     public GameObject textBox;
-    public Text theText;
+    public TextMeshProUGUI theText;
     public TextAsset textFile;
     public string[] textLines;
 
-    public int currentLine;//  la linea actual
-    public int endAtLine;// la linea donde acaba
-    public PlayerController player;// para deactivar el movimiento del player cuando salga texto (si lo hacemos)
-    // Start is called before the first frame update
+    public int currentLine;
+    public int endAtLine;
+    public PlayerController player;
+
+    private bool isTyping;
+    private bool cancelTyping;
+
+    private Coroutine typingCoroutine;
+
     void Start()
     {
-        player= FindObjectOfType<PlayerController>();
-        if(textFile!=null)
+        player = FindObjectOfType<PlayerController>();
+
+        if (textFile != null)
         {
-            textLines=(textFile.text.Split('\n'));
-        }  
+            textLines = textFile.text.Split('\n');
+        }
+
+        if (endAtLine == 0)
+        {
+            endAtLine = textLines.Length - 1;
+        }
+
+        currentLine = -1;
+        ShowNextLine();
     }
 
     void Update()
     {
-        theText.text=textLines[currentLine];
-        if(Input.GetKeyDown(KeyCode.Return))
+        if (textBox.activeSelf)
         {
-            currentLine+=1;
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                if (isTyping)
+                {
+                    cancelTyping = true;
+                }
+                else
+                {
+                    ShowNextLine();
+                }
+            }
         }
-        if(currentLine>endAtLine)
+    }
+
+    public void ShowNextLine()
+    {
+        if (currentLine < endAtLine)
+        {
+            currentLine++;
+            if (typingCoroutine != null)
+            {
+                StopCoroutine(typingCoroutine);
+            }
+
+            typingCoroutine = StartCoroutine(TypeText(textLines[currentLine]));
+        }
+        else
         {
             textBox.SetActive(false);
         }
+    }
+
+    private IEnumerator TypeText(string line)
+    {
+        isTyping = true;
+        cancelTyping = false;
+        theText.text = "";
+
+        for (int i = 0; i < line.Length; i++)
+        {
+            theText.text += line[i];
+
+            if (cancelTyping)
+            {
+                theText.text = line;
+                break;
+            }
+
+            yield return new WaitForSeconds(typeSpeed);
+        }
+
+        isTyping = false;
     }
 }

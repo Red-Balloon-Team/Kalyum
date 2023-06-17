@@ -11,36 +11,38 @@ public class Timer : MonoBehaviour
     public float currentTime;
     public bool countUp;
 
-    [Header ("Limit Settings")]
+    [Header("Limit Settings")]
     public bool hasLimit;
-    public float timerLimit; 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public float timerLimit;
 
-    // Update is called once per frame
     void Update()
     {
-        if(countUp)
+        if (countUp)
         {
-            currentTime+=Time.deltaTime;
-        }else
-        {
-            currentTime-=Time.deltaTime;
+            currentTime += Time.deltaTime;
         }
-        if(hasLimit&&((!countUp&& currentTime<=timerLimit)||(countUp&& currentTime>=timerLimit)))
+        else
         {
-            currentTime= timerLimit;
-            setTimerText();
-            timerText.color= Color.green;
-            enabled=false;
+            currentTime -= Time.deltaTime;
         }
-        setTimerText();
+
+        if (hasLimit && ((!countUp && currentTime <= timerLimit) || (countUp && currentTime >= timerLimit)))
+        {
+            currentTime = timerLimit;
+            SetTimerText();
+            timerText.color = Color.red;
+            enabled = false;
+        }
+
+        SetTimerText();
     }
-    private void setTimerText()
+
+    private void SetTimerText()
     {
-        timerText.text= currentTime.ToString();
+        int minutes = Mathf.FloorToInt(currentTime / 60);
+        int seconds = Mathf.FloorToInt(currentTime % 60);
+        int milliseconds = Mathf.FloorToInt((currentTime * 1000) % 100);
+        string timeString = string.Format("{0:00}:{1:00}:{2:00}", minutes, seconds, milliseconds);
+        timerText.text = timeString;
     }
 }
