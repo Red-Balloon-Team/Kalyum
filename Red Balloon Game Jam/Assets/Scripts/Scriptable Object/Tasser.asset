@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b4b08eda80991f4596916461f98a1bb, type: 3}
   m_Name: Tasser
   m_EditorClassIdentifier: 
-  weaponPrefab: {fileID: 3115466897442621236, guid: deb15476272be874faf9302081c30a52, type: 3}
+  weaponPrefab: {fileID: 729794251247695739, guid: 281b41c1fc0186c4d8097e0814d7444b, type: 3}
   weaponCooldown: 1
   weaponDamage: 1
   weaponRange: 0

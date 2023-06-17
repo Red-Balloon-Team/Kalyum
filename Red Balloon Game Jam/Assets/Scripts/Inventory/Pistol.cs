@@ -10,7 +10,7 @@ public class Pistol : MonoBehaviour, IWeapon
 
     public void Attack()
     {
-        GameObject newBullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, Quaternion.identity);
+        GameObject newBullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, ActiveWeapon.Instance.transform.rotation);
     }
 
     public WeaponInfo GetWeaponInfo()
