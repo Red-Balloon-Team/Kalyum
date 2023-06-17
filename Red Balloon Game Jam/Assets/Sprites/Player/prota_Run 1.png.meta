@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ed219434010db184cb5800442ce488a7
+guid: 8dbbe2219b7fe9c4c839f677d5a29836
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -45,7 +45,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 16
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: prota_Idle 1_0
+      name: prota_Run 1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 32
-        height: 33
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b06b38b613e7cf044a503fc6e9a7a888
-      internalID: -642958588
+      spriteID: 80b190653ac9c7747ab335d267d20728
+      internalID: 1016769086
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: prota_Idle 1_1
+      name: prota_Run 1_1
       rect:
         serializedVersion: 2
         x: 32
         y: 0
         width: 32
-        height: 33
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,8 +145,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bcaa610bf4db4d247aa09993a9b724b1
-      internalID: -1741497631
+      spriteID: eff3c79a77b879b4090f30031270308c
+      internalID: 1083937096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prota_Run 1_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63047b429a2af854796ae65e98a12bcb
+      internalID: -783732347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prota_Run 1_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8534c4edea40a444e93d5728ec1e9568
+      internalID: -47687282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prota_Run 1_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aeddc5ea9899fa240bfc20b68a61c2e2
+      internalID: 525704699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prota_Run 1_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b04ae60f35f46343ae839818a7a393f
+      internalID: 1446265607
       vertices: []
       indices: 
       edges: []
@@ -162,8 +246,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      prota_Idle 1_0: -642958588
-      prota_Idle 1_1: -1741497631
+      prota_Run 1_0: 1016769086
+      prota_Run 1_1: 1083937096
+      prota_Run 1_2: -783732347
+      prota_Run 1_3: -47687282
+      prota_Run 1_4: 525704699
+      prota_Run 1_5: 1446265607
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

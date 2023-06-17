@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 5667841595416903793}
   - component: {fileID: 895203569305090477}
   - component: {fileID: 8222252023587305856}
+  - component: {fileID: 5595346217689551799}
   m_Layer: 0
   m_Name: Pistol
   m_TagString: Untagged
@@ -132,3 +133,24 @@ MonoBehaviour:
   weaponInfo: {fileID: 11400000, guid: 12c38ab612fc6f442a3774d9b1e63fdd, type: 2}
   bulletPrefab: {fileID: 3686714305430899833, guid: f07d6f0a3337b494e9dc74a740baebb9, type: 3}
   bulletSpawnPoint: {fileID: 5776105621165802720}
+--- !u!95 &5595346217689551799
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3656157591361355896}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9884d9d1826b98c428dd4f5e226b2bb1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
