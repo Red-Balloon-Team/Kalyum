@@ -7,6 +7,7 @@ TagManager:
   - Item
   - Enemy
   - NPC
+  - Door
   layers:
   - Default
   - TransparentFX

@@ -9,14 +9,14 @@ public class EnemyHuman : MonoBehaviour
     private EnemyHealth enemyHealth;
     public bool isStunned = false;
 
-    readonly int SAVED_HASH = Animator.StringToHash("Saved");
+    readonly int SAVED_HASH = Animator.StringToHash("Saved");//detecta si la animacion y pongo el trigger de la animacions
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
-        playerControls = new PlayerControls();
-        enemyHealth = GetComponent<EnemyHealth>();
-        playerControls.Inventory.CollectItem.performed += ctx => TakeVision();
+        playerControls = new PlayerControls();//detecta teclas
+        enemyHealth = GetComponent<EnemyHealth>();//accede enemies
+        playerControls.Inventory.CollectItem.performed += ctx => TakeVision();//detecta la tecla e
     }
 
     private void OnEnable()
@@ -29,11 +29,11 @@ public class EnemyHuman : MonoBehaviour
         playerControls.Disable();
     }
 
-    public void TakeVision()
+    public void TakeVision()//poner open door
     {
         if (isStunned)
         {
-            animator.SetTrigger(SAVED_HASH);
+            animator.SetTrigger(SAVED_HASH);//open_hash
             enemyHealth.isStunned = false;
         }
     }
