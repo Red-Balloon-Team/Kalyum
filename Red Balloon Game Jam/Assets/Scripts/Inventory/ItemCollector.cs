@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ItemCollector : MonoBehaviour
 {
-    [SerializeField] private WeaponInfo weaponInfo;
-    [SerializeField] private ItemText pickupPrompt;
+    private WeaponInfo weaponInfo;
+    private ItemText pickupPrompt;
 
     private PlayerControls playerControls;
     private GameObject currentItem;

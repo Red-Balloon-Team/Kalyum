@@ -8,11 +8,16 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] private GameObject deathVFXPrefab;
     [SerializeField] private GameObject stunVFXPrefab;
     // [SerializeField] private float knockBackThrust = 15f;
-    [SerializeField] private bool isStunned = false;
+    [SerializeField] public bool isStunned = false;
 
     private Animator animator;
+    private EnemyHuman enemyHuman;
+    private ItemText itemText;
+    private float timer = 0f;
+    private float stunDuration = 3f;
 
     readonly int STUN_HASH = Animator.StringToHash("Stunned");
+    readonly int IDLE_HASH = Animator.StringToHash("Idle");
 
     private int currentHealth;
     // private Knockback knockback;
@@ -27,6 +32,8 @@ public class EnemyHealth : MonoBehaviour
 
     private void Awake() {
         animator = GetComponent<Animator>();
+        enemyHuman = GetComponent<EnemyHuman>();
+        itemText = GetComponentInChildren<ItemText>();
     }
 
     private void Start()
@@ -45,11 +52,29 @@ public class EnemyHealth : MonoBehaviour
 
     public void Stun()
     {
-        Instantiate(stunVFXPrefab, transform.position, Quaternion.identity);
+
         if (isStunned)
         {
+            Instantiate(stunVFXPrefab, transform.position, Quaternion.identity);
             animator.SetTrigger(STUN_HASH);
+            animator.ResetTrigger(IDLE_HASH);
+            enemyHuman.isStunned = true;
+            itemText.EnemyHumanPrompt();
+
+            StopAllCoroutines();
+            StartCoroutine(EndStunDelayed());
         }
+    }
+
+    private IEnumerator EndStunDelayed()
+    {
+        yield return new WaitForSeconds(stunDuration);
+
+        enemyHuman.isStunned = false;
+        itemText.HidePrompt();
+        animator.SetTrigger(IDLE_HASH);
+        animator.ResetTrigger(STUN_HASH);
+        
     }
 
     // private IEnumerator CheckDetectDeathRoutine()
