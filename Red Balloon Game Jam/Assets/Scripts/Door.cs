@@ -8,15 +8,15 @@ public class Door : MonoBehaviour
     private Animator animator;
     private ItemText itemText;
     private PlayerControls playerControls;
-    
+    public bool isNear=false;
     public bool isOpen = false;
 
     readonly int OPEN_HASH = Animator.StringToHash("Open");
 
     private void Awake()
     {
-        colliders = GetComponentsInChildren<Collider2D>();
         itemText= GetComponent<ItemText>();
+        colliders = GetComponentsInChildren<Collider2D>();
         animator = GetComponent<Animator>();
         playerControls = new PlayerControls();
         playerControls.Inventory.CollectItem.performed += ctx => OpenDoor();
@@ -34,7 +34,7 @@ public class Door : MonoBehaviour
 
     public void OpenDoor()
     {
-        if (!isOpen)
+        if (!isOpen && isNear)
         {
             animator.SetTrigger(OPEN_HASH);
             isOpen=true;

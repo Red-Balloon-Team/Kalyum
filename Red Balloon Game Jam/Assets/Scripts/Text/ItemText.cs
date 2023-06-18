@@ -5,6 +5,8 @@ using TMPro;
 
 public class ItemText : MonoBehaviour
 {
+    private TextBoxManager textBoxManager;
+    private NPCType nPCType;
     [SerializeField] private TextMeshProUGUI promptText;
     [SerializeField] private Canvas canvas;
     [SerializeField] private Transform targetTransform;
@@ -31,6 +33,15 @@ public class ItemText : MonoBehaviour
     public void DoorPrompt()
     {
         promptText.text = "Presiona E para abrir la puerta";
+        canvas.gameObject.SetActive(true);
+
+        Vector3 targetPosition = targetTransform.position;
+        Vector3 promptPosition = new Vector3(targetPosition.x - 0.2f, targetPosition.y + 1.5f, targetPosition.z);
+        promptText.rectTransform.position = promptPosition;
+    }
+    public void NPCPrompt()
+    {
+        promptText.text = "Presiona E para iniciar conversación";
         canvas.gameObject.SetActive(true);
 
         Vector3 targetPosition = targetTransform.position;

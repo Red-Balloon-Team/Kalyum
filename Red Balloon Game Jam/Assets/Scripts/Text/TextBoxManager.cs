@@ -34,7 +34,6 @@ public class TextBoxManager : MonoBehaviour
         {
             endAtLine = textLines.Length - 1;
         }
-        text(0, 2);
     }
 
     void Update()
