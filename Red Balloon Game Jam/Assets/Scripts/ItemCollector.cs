@@ -5,6 +5,7 @@ using UnityEngine;
 public class ItemCollector : MonoBehaviour
 {
     [SerializeField] private WeaponInfo weaponInfo;
+    [SerializeField] private ItemText pickupPrompt;
 
     private PlayerControls playerControls;
     private GameObject currentItem;
@@ -35,6 +36,10 @@ public class ItemCollector : MonoBehaviour
             {
                 weaponInfo.isInInventory = true;
                 activeInventory.ActivateInventorySlot(weaponInfo.weaponIndex);
+                if(activeInventory.activeSlotIndexNum == weaponInfo.weaponIndex)
+                {
+                    activeInventory.ToggleActiveHighlight(weaponInfo.weaponIndex);
+                }
                 Destroy(currentItem);
                 currentItem = null;
             }
@@ -46,6 +51,8 @@ public class ItemCollector : MonoBehaviour
         if (collision.CompareTag("Item"))
         {
             weaponInfo = collision.GetComponent<Pickup>().GetWeaponInfo();
+            pickupPrompt = collision.GetComponentInChildren<ItemText>();
+            pickupPrompt.ShowPrompt(weaponInfo.weaponName);
             currentItem = collision.gameObject;
         }
     }
@@ -54,6 +61,7 @@ public class ItemCollector : MonoBehaviour
     {
         if (collision.gameObject == currentItem)
         {
+            pickupPrompt.HidePrompt();
             currentItem = null;
         }
     }

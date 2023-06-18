@@ -16,5 +16,6 @@ MonoBehaviour:
   weaponCooldown: 1
   weaponDamage: 1
   weaponRange: 0
-  isInInventory: 0
+  isInInventory: 1
   weaponIndex: 1
+  weaponName: Tasser

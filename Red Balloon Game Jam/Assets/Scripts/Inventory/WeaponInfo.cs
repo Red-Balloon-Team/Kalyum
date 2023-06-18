@@ -11,5 +11,6 @@ public class WeaponInfo : ScriptableObject
     public float weaponRange;
     public bool isInInventory = false;
     public int weaponIndex;
+    public string weaponName;
 }
 

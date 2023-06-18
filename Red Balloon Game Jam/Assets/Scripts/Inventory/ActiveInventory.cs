@@ -4,13 +4,21 @@ using UnityEngine;
 
 public class ActiveInventory : MonoBehaviour
 {
-    private int activeSlotIndexNum = 0;
+    [SerializeField] private List<WeaponInfo> weaponInfos;
+    
+    public int activeSlotIndexNum = 0;
 
     private PlayerControls playerControls;
 
     private void Awake()
     {
         playerControls = new PlayerControls();
+
+        foreach (var weaponInfo in weaponInfos)
+        {
+            weaponInfo.isInInventory = false;
+        }
+
     }
 
     private void Start()
@@ -30,7 +38,7 @@ public class ActiveInventory : MonoBehaviour
         ToggleActiveHighlight(numValue - 1);
     }
 
-    private void ToggleActiveHighlight(int indexNum)
+    public void ToggleActiveHighlight(int indexNum)
     {
         activeSlotIndexNum = indexNum;
 
@@ -58,7 +66,8 @@ public class ActiveInventory : MonoBehaviour
             Destroy(ActiveWeapon.Instance.CurrentActiveWeapon.gameObject);
         }
 
-        if (transform.GetChild(activeSlotIndexNum).GetComponentInChildren<InventorySlot>().GetWeaponInfo() == null)
+        if (transform.GetChild(activeSlotIndexNum).GetComponentInChildren<InventorySlot>().GetWeaponInfo() == null 
+        || !transform.GetChild(activeSlotIndexNum).GetComponentInChildren<InventorySlot>().GetWeaponInfo().isInInventory)
         {
             ActiveWeapon.Instance.WeaponNull();
             return;
@@ -73,7 +82,7 @@ public class ActiveInventory : MonoBehaviour
         ActiveWeapon.Instance.transform.rotation = Quaternion.Euler(0, 0, 0);
         newWeapon.transform.parent = ActiveWeapon.Instance.transform;
 
-        ActiveWeapon.Instance.NewWeapon(newWeapon.GetComponent<MonoBehaviour>());
-        
+        ActiveWeapon.Instance.NewWeapon(newWeapon.GetComponent<MonoBehaviour>());  
+
     }
 }

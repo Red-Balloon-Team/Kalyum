@@ -18,3 +18,4 @@ MonoBehaviour:
   weaponRange: 0
   isInInventory: 1
   weaponIndex: 0
+  weaponName: Pistol
