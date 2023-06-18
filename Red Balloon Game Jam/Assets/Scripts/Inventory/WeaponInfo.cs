@@ -9,5 +9,7 @@ public class WeaponInfo : ScriptableObject
     public float weaponCooldown;
     public int weaponDamage;
     public float weaponRange;
+    public bool isInInventory = false;
+    public int weaponIndex;
 }
 

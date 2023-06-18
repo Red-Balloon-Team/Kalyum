@@ -7,7 +7,7 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] private int startingHealth = 3;
     [SerializeField] private GameObject deathVFXPrefab;
     [SerializeField] private GameObject stunVFXPrefab;
-    [SerializeField] private float knockBackThrust = 15f;
+    // [SerializeField] private float knockBackThrust = 15f;
     [SerializeField] private bool isStunned = false;
 
     private Animator animator;
@@ -36,20 +36,19 @@ public class EnemyHealth : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        Debug.Log("Damage");
+        currentHealth -= damage;
+        // knockback.GetKnockedBack(PlayerController.Instance.transform, knockBackThrust);
+        // StartCoroutine(flash.FlashRoutine());
+        // StartCoroutine(CheckDetectDeathRoutine());
+        DetectDeath();
+    }
+
+    public void Stun()
+    {
+        Instantiate(stunVFXPrefab, transform.position, Quaternion.identity);
         if (isStunned)
         {
-            Debug.Log("stun");
-            Instantiate(stunVFXPrefab, transform.position, Quaternion.identity);
             animator.SetTrigger(STUN_HASH);
-        }
-        else {
-            Debug.Log("health");
-            currentHealth -= damage;
-            // knockback.GetKnockedBack(PlayerController.Instance.transform, knockBackThrust);
-            // StartCoroutine(flash.FlashRoutine());
-            // StartCoroutine(CheckDetectDeathRoutine());
-            DetectDeath();
         }
     }
 

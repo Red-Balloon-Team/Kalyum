@@ -2,26 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class Pistol : MonoBehaviour, IWeapon
 {
     [SerializeField] private WeaponInfo weaponInfo;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform bulletSpawnPoint;
+    [SerializeField] private Transform bulletSpawnPointFlip;
 
     private Animator animator;
     private PlayerController playerController;
+    private SpriteRenderer spriteRenderer;
 
     readonly int ATTACK_HASH = Animator.StringToHash("Attack");
 
     private void Awake()
     {
-        playerController = GetComponentInParent<PlayerController>();
+        playerController = FindObjectOfType<PlayerController>();
         animator = GetComponent<Animator>();
-        animator.SetTrigger(ATTACK_HASH);
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
 
     private void Update()
@@ -31,7 +29,14 @@ public class Pistol : MonoBehaviour, IWeapon
 
     public void Attack()
     {
-        GameObject newBullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, transform.rotation);
+        animator.SetTrigger(ATTACK_HASH);
+        if(!spriteRenderer.flipY)
+        {
+            GameObject newBullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, transform.rotation);
+        }
+        else {
+            GameObject newBullet = Instantiate(bulletPrefab, bulletSpawnPointFlip.position, transform.rotation);
+        }
     }
 
     public WeaponInfo GetWeaponInfo()
@@ -41,20 +46,15 @@ public class Pistol : MonoBehaviour, IWeapon
 
     private void MouseFollowWithOffset()
     {
-        Vector3 mousePos = Input.mousePosition;
+        Vector3 mousePosition = Input.mousePosition;
         Vector3 playerScreenPoint = Camera.main.WorldToScreenPoint(playerController.transform.position);
-
-        float angle = Mathf.Atan2(mousePos.y - playerScreenPoint.y, mousePos.x - playerScreenPoint.x) * Mathf.Rad2Deg;
-
-        if (mousePos.x < playerScreenPoint.x)
+        if (mousePosition.x < playerScreenPoint.x - 10)
         {
-            Debug.Log("Mouse is to the left of the player.");
-            transform.rotation = Quaternion.Euler(0, 180, -angle);
+            spriteRenderer.flipY = true;
         }
         else
         {
-            Debug.Log("Mouse is to the right of the player.");
-            transform.rotation = Quaternion.Euler(0, 0, angle);
+            spriteRenderer.flipY = false;
         }
     }
 }

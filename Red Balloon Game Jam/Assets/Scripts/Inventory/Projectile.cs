@@ -5,8 +5,8 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 22f;
-    [SerializeField] private GameObject particleOnHitPrefabVFX;
-    [SerializeField] private bool isEnemyProjectile = false;
+    // [SerializeField] private GameObject particleOnHitPrefabVFX;
+    // [SerializeField] private bool isEnemyProjectile = false;
     [SerializeField] private float projectileRange = 10f;
 
     private Vector3 startPosition;

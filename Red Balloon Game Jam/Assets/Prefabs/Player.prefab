@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6105863353204061742}
   - component: {fileID: 8306452201833572664}
   - component: {fileID: 7288678840135457390}
+  - component: {fileID: 1149689197760659149}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -78,15 +79,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 191327815, guid: a2bdb37d14fd745439af73babcaa35ec, type: 3}
+  m_Sprite: {fileID: 1016769086, guid: 8dbbe2219b7fe9c4c839f677d5a29836, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!50 &203790650745040273
@@ -128,7 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ffc5e5a8ef81fb48ad7dba7c5ea7165, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
+  moveSpeed: 6
 --- !u!70 &8306452201833572664
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -185,6 +186,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1149689197760659149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362112032840063427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c44e4648b96b3b45ac34ab5caf69a9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6293031050699673099
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,7 +234,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.034, y: -0.56}
+  m_AnchoredPosition: {x: -0.017, y: -0.56}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3451769939878573628
