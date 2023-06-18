@@ -21,7 +21,7 @@ public class TextBoxManager : MonoBehaviour
 
     private Coroutine typingCoroutine;
 
-    void Start()
+    public void Start()
     {
         player = FindObjectOfType<PlayerController>();
 
@@ -34,9 +34,7 @@ public class TextBoxManager : MonoBehaviour
         {
             endAtLine = textLines.Length - 1;
         }
-
-        currentLine = -1;
-        ShowNextLine();
+        text(0, 2);
     }
 
     void Update()
@@ -95,5 +93,13 @@ public class TextBoxManager : MonoBehaviour
         }
 
         isTyping = false;
+    }
+
+    public void text(int start, int finish){
+        textBox.SetActive(true);
+        currentLine=start-1;
+        endAtLine=finish;       
+        ShowNextLine();
+       
     }
 }

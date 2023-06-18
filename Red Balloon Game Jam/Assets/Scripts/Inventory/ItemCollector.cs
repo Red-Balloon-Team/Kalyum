@@ -55,6 +55,10 @@ public class ItemCollector : MonoBehaviour
             pickupPrompt.ShowPrompt(weaponInfo.weaponName);
             currentItem = collision.gameObject;
         }
+        else if(collision.CompareTag("NPC"))
+        {
+            
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
