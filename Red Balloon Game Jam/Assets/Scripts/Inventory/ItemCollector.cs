@@ -36,10 +36,7 @@ public class ItemCollector : MonoBehaviour
             {
                 weaponInfo.isInInventory = true;
                 activeInventory.ActivateInventorySlot(weaponInfo.weaponIndex);
-                if (activeInventory.activeSlotIndexNum == weaponInfo.weaponIndex)
-                {
-                    activeInventory.ToggleActiveHighlight(weaponInfo.weaponIndex);
-                }
+                activeInventory.ToggleActiveHighlight(weaponInfo.weaponIndex);
                 Destroy(currentItem);
                 currentItem = null;
             }

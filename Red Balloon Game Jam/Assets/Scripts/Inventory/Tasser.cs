@@ -8,11 +8,14 @@ public class Tasser : MonoBehaviour, IWeapon
     [SerializeField] private Transform weaponCollider;
 
     private Animator animator;
+    private TextBoxManager textBoxManager;
 
     readonly int ATTACK_HASH = Animator.StringToHash("Attack");
 
     private void Awake() {
         animator = GetComponent<Animator>();
+        textBoxManager= FindObjectOfType<TextBoxManager>();
+        textBoxManager.text(6,8);
     }
 
     public void Attack()

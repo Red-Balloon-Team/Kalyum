@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
+    [SerializeField] public int id;
     [SerializeField] private int startingHealth = 3;
     [SerializeField] private GameObject deathVFXPrefab;
     [SerializeField] private GameObject stunVFXPrefab;
@@ -11,6 +12,7 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] public bool isStunned = false;
 
     private Animator animator;
+    private TextBoxManager textBoxManager;
     private EnemyHuman enemyHuman;
     private ItemText itemText;
     private float stunDuration = 3f;
@@ -33,6 +35,7 @@ public class EnemyHealth : MonoBehaviour
         animator = GetComponent<Animator>();
         enemyHuman = GetComponent<EnemyHuman>();
         itemText = GetComponentInChildren<ItemText>();
+        textBoxManager= FindObjectOfType<TextBoxManager>();
     }
 
     private void Start()
@@ -43,6 +46,10 @@ public class EnemyHealth : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+        if(id==1)
+            {
+                textBoxManager.text(5,5);
+            }
         // knockback.GetKnockedBack(PlayerController.Instance.transform, knockBackThrust);
         // StartCoroutine(flash.FlashRoutine());
         // StartCoroutine(CheckDetectDeathRoutine());
@@ -59,6 +66,10 @@ public class EnemyHealth : MonoBehaviour
             animator.ResetTrigger(IDLE_HASH);
             enemyHuman.isStunned = true;
             itemText.EnemyHumanPrompt();
+            if(id==2)
+            {
+                textBoxManager.text(9,9);
+            }
 
             StopAllCoroutines();
             StartCoroutine(EndStunDelayed());
