@@ -18,9 +18,10 @@ public class Entrance : MonoBehaviour
         {
             PlayerController.Instance.transform.position = this.transform.position;
             CameraController.Instance.SetPlayerCameraFollow();
-            Fade.Instance.FadeToClear();
+            Fade.Instance.FadeToClear();            
         }
 
     }
+
 }
 
