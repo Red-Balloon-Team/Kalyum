@@ -45,7 +45,7 @@ public class Pistol : MonoBehaviour, IWeapon
     private void MouseFollowWithOffset()
     {
         Vector3 mousePosition = Input.mousePosition;
-        Vector3 playerScreenPoint = Camera.main.WorldToScreenPoint(playerController.transform.position);
+        Vector3 playerScreenPoint = Camera.main.WorldToScreenPoint(PlayerController.Instance.transform.position);
         if (mousePosition.x < playerScreenPoint.x - 10)
         {
             spriteRenderer.flipY = true;
