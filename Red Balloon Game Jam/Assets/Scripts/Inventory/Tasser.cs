@@ -15,7 +15,7 @@ public class Tasser : MonoBehaviour, IWeapon
     private void Awake() {
         animator = GetComponent<Animator>();
         textBoxManager= FindObjectOfType<TextBoxManager>();
-        textBoxManager.text(4,4);
+        textBoxManager.text(6,8);
     }
 
     public void Attack()

@@ -22,7 +22,7 @@ public class Pistol : MonoBehaviour, IWeapon
         playerController = FindObjectOfType<PlayerController>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-        textBoxManager.text(3,3);
+        textBoxManager.text(3,4);
 
     }
 

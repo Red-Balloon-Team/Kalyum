@@ -8859,6 +8859,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Maniqui Robot
       objectReference: {fileID: 0}
+    - target: {fileID: 1486371436121881457, guid: 7573deff311177f4581c450ab5008dd1, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 6421062910577937583, guid: 7573deff311177f4581c450ab5008dd1, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -8902,6 +8906,10 @@ PrefabInstance:
     - target: {fileID: 6421062910577937583, guid: 7573deff311177f4581c450ab5008dd1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7208841738579931926, guid: 7573deff311177f4581c450ab5008dd1, type: 3}
+      propertyPath: id
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9559,6 +9567,10 @@ PrefabInstance:
     - target: {fileID: 5384414627904323639, guid: dd637f22ce4c10c43a9e92d0fdd1dcff, type: 3}
       propertyPath: m_TagString
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 7650894926899746781, guid: dd637f22ce4c10c43a9e92d0fdd1dcff, type: 3}
+      propertyPath: id
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

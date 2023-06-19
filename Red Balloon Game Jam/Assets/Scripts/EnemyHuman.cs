@@ -6,6 +6,7 @@ public class EnemyHuman : MonoBehaviour
 {
     private Animator animator;
     private PlayerControls playerControls;
+    private TextBoxManager textBoxManager;
     private EnemyHealth enemyHealth;
     public bool isStunned = false;
 
@@ -14,6 +15,7 @@ public class EnemyHuman : MonoBehaviour
     private void Awake()
     {
         animator = GetComponent<Animator>();
+        textBoxManager= FindObjectOfType<TextBoxManager>();
         playerControls = new PlayerControls();//detecta teclas
         enemyHealth = GetComponent<EnemyHealth>();//accede enemies
         playerControls.Inventory.CollectItem.performed += ctx => TakeVision();//detecta la tecla e
@@ -35,6 +37,10 @@ public class EnemyHuman : MonoBehaviour
         {
             animator.SetTrigger(SAVED_HASH);//open_hash
             enemyHealth.isStunned = false;
+            if(enemyHealth.id==2)
+            {
+                textBoxManager.text(10,11);
+            }
         }
     }
 }
