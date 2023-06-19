@@ -14,7 +14,6 @@ public class NameBoxManager : MonoBehaviour
 
     public int currentLine;
     public int endAtLine;
-    // public PlayerController player;
 
     private bool isTyping;
     private bool cancelTyping;
@@ -23,7 +22,6 @@ public class NameBoxManager : MonoBehaviour
 
     public void Start()
     {
-        // player = FindObjectOfType<PlayerController>();
 
         if (textFile != null)
         {
@@ -34,6 +32,7 @@ public class NameBoxManager : MonoBehaviour
         {
             endAtLine = textLines.Length - 1;
         }
+        text(2, 2);
         
     }
 

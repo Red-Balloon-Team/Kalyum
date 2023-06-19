@@ -11,21 +11,19 @@ public class TextBoxManager : MonoBehaviour
     public TextMeshProUGUI theText;
     public TextAsset textFile;
     
-    private NameBoxManager nameBoxManager;
     public string[] textLines;
 
     public int currentLine;
     public int endAtLine;
-    // public PlayerController player;
 
     private bool isTyping;
+    public bool textEnabled;
     private bool cancelTyping;
 
     private Coroutine typingCoroutine;
 
     public void Start()
     {
-        // player = FindObjectOfType<PlayerController>();
 
         if (textFile != null)
         {
@@ -36,7 +34,6 @@ public class TextBoxManager : MonoBehaviour
         {
             endAtLine = textLines.Length - 1;
         }
-        nameBoxManager.text(2,2);
         text(0,2);
     }
 
@@ -73,6 +70,7 @@ public class TextBoxManager : MonoBehaviour
         else
         {
             textBox.SetActive(false);
+            textEnabled = false;
         }
     }
 
@@ -100,6 +98,7 @@ public class TextBoxManager : MonoBehaviour
 
     public void text(int start, int finish){
         textBox.SetActive(true);
+        textEnabled = true;
         currentLine=start-1;
         endAtLine=finish;       
         ShowNextLine();

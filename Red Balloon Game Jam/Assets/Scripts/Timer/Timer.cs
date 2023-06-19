@@ -15,26 +15,36 @@ public class Timer : MonoBehaviour
     public bool hasLimit;
     public float timerLimit;
 
+    private bool isEnabled = false;
+
     void Update()
     {
-        if (countUp)
+        if (isEnabled)
         {
-            currentTime += Time.deltaTime;
-        }
-        else
-        {
-            currentTime -= Time.deltaTime;
-        }
+            if (countUp)
+            {
+                currentTime += Time.deltaTime;
+            }
+            else
+            {
+                currentTime -= Time.deltaTime;
+            }
 
-        if (hasLimit && ((!countUp && currentTime <= timerLimit) || (countUp && currentTime >= timerLimit)))
-        {
-            currentTime = timerLimit;
+            if (hasLimit && ((!countUp && currentTime <= timerLimit) || (countUp && currentTime >= timerLimit)))
+            {
+                currentTime = timerLimit;
+                SetTimerText();
+                timerText.color = Color.red;
+                isEnabled = false;
+            }
+
             SetTimerText();
-            timerText.color = Color.red;
-            enabled = false;
         }
+    }
 
-        SetTimerText();
+    public void EnableTimer()
+    {
+        isEnabled = true;
     }
 
     private void SetTimerText()

@@ -11,10 +11,12 @@ public class PlayerController : Singleton<PlayerController>
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
     private Animator animator;
+    private TextBoxManager text;
 
     protected override void Awake() {
         base.Awake();
 
+        text = FindObjectOfType<TextBoxManager>();
         playerControls = new PlayerControls();
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -30,12 +32,16 @@ public class PlayerController : Singleton<PlayerController>
     // }
 
     private void Update() {
+
         PlayerInput();
     }
 
     private void FixedUpdate() {
         FacingDirection();
-        Move();
+        if(!text.textEnabled)
+        {
+            Move();
+        }
     }
 
     private void PlayerInput() {

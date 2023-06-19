@@ -69,6 +69,7 @@ public class Detection : MonoBehaviour
         else if (collision.CompareTag("Door"))
         {
             Door door = collision.GetComponent<Door>();
+            pickupPrompt.HidePrompt();
             doorsInRange.Remove(door);
         }
     }
