@@ -7,6 +7,7 @@ public class EnemyHuman : MonoBehaviour
     private Animator animator;
     private PlayerControls playerControls;
     private TextBoxManager textBoxManager;
+    private NameBoxManager nameBoxManager;
     private EnemyHealth enemyHealth;
     public bool isStunned = false;
 
@@ -15,6 +16,7 @@ public class EnemyHuman : MonoBehaviour
     private void Awake()
     {
         animator = GetComponent<Animator>();
+        nameBoxManager=FindObjectOfType<NameBoxManager>();
         textBoxManager= FindObjectOfType<TextBoxManager>();
         playerControls = new PlayerControls();//detecta teclas
         enemyHealth = GetComponent<EnemyHealth>();//accede enemies
@@ -39,6 +41,7 @@ public class EnemyHuman : MonoBehaviour
             enemyHealth.isStunned = false;
             if(enemyHealth.id==2)
             {
+                nameBoxManager.text(2,2);
                 textBoxManager.text(10,11);
             }
         }

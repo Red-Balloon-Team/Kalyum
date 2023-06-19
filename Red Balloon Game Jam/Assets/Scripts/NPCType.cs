@@ -6,11 +6,13 @@ public class NPCType : MonoBehaviour
 {
     [SerializeField] public int id;
     private TextBoxManager textBoxManager;
+    private NameBoxManager nameBoxManager;
     private ItemText itemText;
     private bool isTalking = false;
 
     private void Awake()
     {
+        nameBoxManager=FindObjectOfType<NameBoxManager>();
         textBoxManager = FindObjectOfType<TextBoxManager>();
         itemText = GetComponent<ItemText>();
     }
@@ -21,6 +23,7 @@ public class NPCType : MonoBehaviour
         {
             if (id == 2)
             {
+                nameBoxManager.text(1,1);
                 textBoxManager.text(0, 2);
                 itemText.HidePrompt();
                 isTalking = true;

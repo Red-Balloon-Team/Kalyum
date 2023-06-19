@@ -7,6 +7,7 @@ public class ItemCollector : MonoBehaviour
     private WeaponInfo weaponInfo;
     private ItemText pickupPrompt;
     private TextBoxManager textBoxManager;
+    private NameBoxManager nameBoxManager;
 
     private PlayerControls playerControls;
     private GameObject currentItem;
@@ -14,6 +15,7 @@ public class ItemCollector : MonoBehaviour
 
     private void Awake()
     {
+        nameBoxManager=FindObjectOfType<NameBoxManager>();
         textBoxManager= FindObjectOfType<TextBoxManager>();
         playerControls = new PlayerControls();
         activeInventory = FindObjectOfType<ActiveInventory>();
@@ -43,10 +45,12 @@ public class ItemCollector : MonoBehaviour
                 currentItem = null;
                 if(weaponInfo.weaponName=="Pistol")
                 {
+                    nameBoxManager.text(2,2);
                     textBoxManager.text(3,4);
                 }
                 if(weaponInfo.weaponName=="Tasser")
                 {
+                    nameBoxManager.text(2,2);
                     textBoxManager.text(6,8);
                 }
                 

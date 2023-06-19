@@ -3,15 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class TextBoxManager : MonoBehaviour
+public class NameBoxManager : MonoBehaviour
 {
     [SerializeField] public float typeSpeed;
     
     public GameObject textBox;
     public TextMeshProUGUI theText;
     public TextAsset textFile;
-    
-    private NameBoxManager nameBoxManager;
     public string[] textLines;
 
     public int currentLine;
@@ -36,8 +34,7 @@ public class TextBoxManager : MonoBehaviour
         {
             endAtLine = textLines.Length - 1;
         }
-        nameBoxManager.text(2,2);
-        text(0,2);
+        
     }
 
     void Update()
@@ -69,10 +66,6 @@ public class TextBoxManager : MonoBehaviour
             }
 
             typingCoroutine = StartCoroutine(TypeText(textLines[currentLine]));
-        }
-        else
-        {
-            textBox.SetActive(false);
         }
     }
 

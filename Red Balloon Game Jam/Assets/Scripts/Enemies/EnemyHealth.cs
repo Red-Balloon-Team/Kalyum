@@ -12,6 +12,7 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] public bool isStunned = false;
 
     private Animator animator;
+    private NameBoxManager nameBoxManager;
     private TextBoxManager textBoxManager;
     private EnemyHuman enemyHuman;
     private ItemText itemText;
@@ -32,6 +33,7 @@ public class EnemyHealth : MonoBehaviour
 
 
     private void Awake() {
+        nameBoxManager=FindObjectOfType<NameBoxManager>();
         animator = GetComponent<Animator>();
         enemyHuman = GetComponent<EnemyHuman>();
         itemText = GetComponentInChildren<ItemText>();
@@ -48,6 +50,7 @@ public class EnemyHealth : MonoBehaviour
         currentHealth -= damage;
         if(id==1)
             {
+                nameBoxManager.text(2,2);
                 textBoxManager.text(5,5);
             }
         // knockback.GetKnockedBack(PlayerController.Instance.transform, knockBackThrust);
@@ -68,6 +71,7 @@ public class EnemyHealth : MonoBehaviour
             itemText.EnemyHumanPrompt();
             if(id==2)
             {
+                nameBoxManager.text(2,2);
                 textBoxManager.text(9,9);
             }
 
