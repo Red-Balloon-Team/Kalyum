@@ -16,9 +16,11 @@ public class Detection : MonoBehaviour
     private bool interactingWithButton = false;
 
     private PlayerControls playerControls;
+    private Button button;
 
     private void Awake()
     {
+        button = FindObjectOfType<Button>();
         timer=FindObjectOfType<Timer>();
         nPCType = FindObjectOfType<NPCType>();
         playerControls = new PlayerControls();
@@ -105,6 +107,7 @@ public class Detection : MonoBehaviour
         else if(interactingWithButton)
         {
             timer.EnableTimer();
+            button.PressButton();
         }
         else if (doorsInRange.Count > 0)
         {
