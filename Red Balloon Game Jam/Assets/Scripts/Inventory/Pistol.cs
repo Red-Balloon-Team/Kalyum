@@ -10,6 +10,7 @@ public class Pistol : MonoBehaviour, IWeapon
     [SerializeField] private Transform bulletSpawnPointFlip;
 
     private Animator animator;
+    private TextBoxManager textBoxManager;
     private PlayerController playerController;
     private SpriteRenderer spriteRenderer;
 
@@ -17,9 +18,12 @@ public class Pistol : MonoBehaviour, IWeapon
 
     private void Awake()
     {
+        textBoxManager= FindObjectOfType<TextBoxManager>();
         playerController = FindObjectOfType<PlayerController>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        textBoxManager.text(3,3);
+
     }
 
     private void Update()

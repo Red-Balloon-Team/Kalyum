@@ -21,7 +21,7 @@ public class NPCType : MonoBehaviour
         {
             if (id == 2)
             {
-                textBoxManager.text(1, 3);
+                textBoxManager.text(0, 2);
                 itemText.HidePrompt();
                 isTalking = true;
             }
