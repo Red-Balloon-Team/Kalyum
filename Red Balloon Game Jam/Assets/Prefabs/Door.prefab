@@ -142,7 +142,7 @@ RectTransform:
   m_Children:
   - {fileID: 6686755256482526457}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -189,7 +189,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 2083469995, guid: 3a630e5c4220b3a429b741eff6690e0e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -365,7 +365,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   promptText: {fileID: 8097674630780699584}
   canvas: {fileID: 3845896194933021079}
-  targetTransform: {fileID: 0}
+  targetTransform: {fileID: 7284864490730762033}
 --- !u!61 &5155817863839572178
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -398,7 +398,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.012047768, y: -2.2890549}
+  m_Offset: {x: 0.023448408, y: -2.2251618}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -409,7 +409,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.1357913, y: 1.7592239}
+  m_Size: {x: 1.9573189, y: 1.6314378}
   m_EdgeRadius: 0
 --- !u!114 &3108249618330401465
 MonoBehaviour:
@@ -437,7 +437,7 @@ MonoBehaviour:
   - {x: 4.375, y: -3, z: 0}
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
-  m_InstanceId: -2758014
+  m_InstanceId: -1680
   m_LocalBounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 4.375, y: 3, z: 0}
