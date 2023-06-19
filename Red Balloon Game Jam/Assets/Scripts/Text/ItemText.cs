@@ -51,7 +51,10 @@ public class ItemText : MonoBehaviour
 
     public void HidePrompt()
     {
-        canvas.gameObject.SetActive(false);
+        if (canvas != null)
+        {
+            canvas.gameObject.SetActive(false);
+        }
     }
 }
 
