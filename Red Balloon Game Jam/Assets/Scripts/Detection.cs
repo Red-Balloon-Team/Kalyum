@@ -7,17 +7,19 @@ public class Detection : MonoBehaviour
     public WeaponInfo weaponInfo;
     private ItemText pickupPrompt;
     private NPCType nPCType;
+    private Timer timer;
     private List<Door> doorsInRange = new List<Door>();
     public GameObject currentItem;
 
     private bool interactingWithNPC = false;
+    private bool interactingWithButton = false;
 
     private PlayerControls playerControls;
 
     private void Awake()
     {
+        timer=FindObjectOfType<Timer>();
         nPCType = FindObjectOfType<NPCType>();
-
         playerControls = new PlayerControls();
         playerControls.Inventory.CollectItem.performed += ctx => Interact();
     }
@@ -41,6 +43,7 @@ public class Detection : MonoBehaviour
             pickupPrompt.ShowPrompt(weaponInfo.weaponName);
             currentItem = collision.gameObject;
             interactingWithNPC = false;
+            interactingWithButton=false;
         }
         else if (collision.CompareTag("NPC"))
         {
@@ -48,6 +51,7 @@ public class Detection : MonoBehaviour
             pickupPrompt.NPCPrompt();
             currentItem = collision.gameObject;
             interactingWithNPC = true;
+            interactingWithButton=false;
         }
         else if (collision.CompareTag("Door"))
         {
@@ -55,6 +59,14 @@ public class Detection : MonoBehaviour
             doorsInRange.Add(door);
             pickupPrompt = door.GetComponentInChildren<ItemText>();
             pickupPrompt.DoorPrompt();
+        }
+        else if (collision.CompareTag("Button"))
+        {
+            pickupPrompt = collision.GetComponentInChildren<ItemText>();
+            pickupPrompt.ButtonPrompt();
+            currentItem = collision.gameObject;
+            interactingWithButton = true;
+            interactingWithNPC=false;
         }
     }
 
@@ -79,6 +91,10 @@ public class Detection : MonoBehaviour
         if (interactingWithNPC)
         {
             nPCType.InitConvers();
+        }
+        else if(interactingWithButton)
+        {
+            timer.EnableTimer();
         }
         else if (doorsInRange.Count > 0)
         {
