@@ -10,3 +10,5 @@ Prueba a aturdir este maniquí blanco y romperle las gafas que lo corrompen.
 Una vez aturdido le puedes quitar las gafas para liberarlo.
 ¡Perfecto! Lo has liberado del control de la IA.
 Ahora dirígete a esa puerta y mueve la caja que obstaculiza tu camino, una vez apartada, podrás abrir la puerta.
+Ahora que conoces tus armas, debes pasar este circuito de pruebas en un máximo de 1 minuto.
+El tiempo empezará a contar cuando dejes de hablar conmigo.
