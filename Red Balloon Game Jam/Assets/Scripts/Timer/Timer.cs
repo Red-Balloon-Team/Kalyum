@@ -9,6 +9,7 @@ public class Timer : MonoBehaviour
     public TextMeshProUGUI timerText;
     [Header("Timer Setting")]
     public float currentTime;
+    public GameObject textBox;
     public bool countUp;
 
     [Header("Limit Settings")]
@@ -21,6 +22,7 @@ public class Timer : MonoBehaviour
     {
         if (isEnabled)
         {
+            textBox.SetActive(true);
             if (countUp)
             {
                 currentTime += Time.deltaTime;
@@ -44,6 +46,7 @@ public class Timer : MonoBehaviour
 
     public void EnableTimer()
     {
+        textBox.SetActive(true);
         isEnabled = true;
     }
 
