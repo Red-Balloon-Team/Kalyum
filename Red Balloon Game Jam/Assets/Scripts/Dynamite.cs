@@ -5,8 +5,8 @@ using UnityEngine;
 public class Dynamite : MonoBehaviour
 {
     public GameObject dynamite;
-    public float distance = 10f;
-    public float velocity = 10f;
+    public float distance = 6f;
+    public float velocity = 2f;
     private bool createDynamite = false;
     private Vector3 initialPisition;
     private Vector3 finalPosition;
@@ -15,6 +15,8 @@ public class Dynamite : MonoBehaviour
     {
         initialPisition = dynamite.transform.position;
         finalPosition = initialPisition + Vector3.left * distance;
+        dynamite.SetActive(false);
+        CreateDynamite();
     }
 
     private void Update()

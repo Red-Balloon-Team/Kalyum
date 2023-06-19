@@ -37,22 +37,22 @@ public class Detection : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Item"))
-        {
-            weaponInfo = collision.GetComponent<Pickup>().GetWeaponInfo();
-            pickupPrompt = collision.GetComponentInChildren<ItemText>();
-            pickupPrompt.ShowPrompt(weaponInfo.weaponName);
-            currentItem = collision.gameObject;
-            interactingWithNPC = false;
-            interactingWithButton=false;
-        }
-        else if (collision.CompareTag("NPC"))
+        // if (collision.CompareTag("Item"))
+        // {
+        //     weaponInfo = collision.GetComponent<Pickup>().GetWeaponInfo();
+        //     pickupPrompt = collision.GetComponentInChildren<ItemText>();
+        //     pickupPrompt.ShowPrompt(weaponInfo.weaponName);
+        //     currentItem = collision.gameObject;
+        //     interactingWithNPC = false;
+        //     interactingWithButton=false;
+        // }
+        if (collision.CompareTag("NPC"))
         {
             NPCType nPCType= collision.GetComponent<NPCType>();
             npcInRange.Add(nPCType);
             pickupPrompt = collision.GetComponentInChildren<ItemText>();
             pickupPrompt.NPCPrompt();
-            currentItem = collision.gameObject;
+            // currentItem = collision.gameObject;
             interactingWithNPC = true;
             interactingWithButton=false;
         }
