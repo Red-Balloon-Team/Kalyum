@@ -24,6 +24,8 @@ public class ChangeBegining : MonoBehaviour
                 StartCoroutine(LoadSceneRoutine());
             }
         }
+        timer.finish=false;
+        timer.currentTime=10;
     }
 
     private IEnumerator LoadSceneRoutine()
