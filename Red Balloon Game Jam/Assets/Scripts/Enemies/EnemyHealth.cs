@@ -13,7 +13,6 @@ public class EnemyHealth : MonoBehaviour
     private Animator animator;
     private EnemyHuman enemyHuman;
     private ItemText itemText;
-    private float timer = 0f;
     private float stunDuration = 3f;
 
     readonly int STUN_HASH = Animator.StringToHash("Stunned");
