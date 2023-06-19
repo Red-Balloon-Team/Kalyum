@@ -14,7 +14,7 @@ public class TextBoxManager : MonoBehaviour
 
     public int currentLine;
     public int endAtLine;
-    public PlayerController player;
+    // public PlayerController player;
 
     private bool isTyping;
     private bool cancelTyping;
@@ -23,7 +23,7 @@ public class TextBoxManager : MonoBehaviour
 
     public void Start()
     {
-        player = FindObjectOfType<PlayerController>();
+        // player = FindObjectOfType<PlayerController>();
 
         if (textFile != null)
         {

@@ -10,14 +10,14 @@ public class Pistol : MonoBehaviour, IWeapon
     [SerializeField] private Transform bulletSpawnPointFlip;
 
     private Animator animator;
-    private PlayerController playerController;
+    // private PlayerController playerController;
     private SpriteRenderer spriteRenderer;
 
     readonly int ATTACK_HASH = Animator.StringToHash("Attack");
 
     private void Awake()
     {
-        playerController = FindObjectOfType<PlayerController>();
+        // playerController = FindObjectOfType<PlayerController>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
@@ -47,7 +47,7 @@ public class Pistol : MonoBehaviour, IWeapon
     private void MouseFollowWithOffset()
     {
         Vector3 mousePosition = Input.mousePosition;
-        Vector3 playerScreenPoint = Camera.main.WorldToScreenPoint(playerController.transform.position);
+        Vector3 playerScreenPoint = Camera.main.WorldToScreenPoint(PlayerController.Instance.transform.position);
         if (mousePosition.x < playerScreenPoint.x - 10)
         {
             spriteRenderer.flipY = true;
