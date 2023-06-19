@@ -43,7 +43,7 @@ public class ItemCollector : MonoBehaviour
                 activeInventory.ToggleActiveHighlight(weaponInfo.weaponIndex);
                 Destroy(currentItem);
                 currentItem = null;
-                if(weaponInfo.weaponName=="Pistol")
+                if(weaponInfo.weaponName=="Pistola")
                 {
                     nameBoxManager.text(2,2);
                     textBoxManager.text(3,4);
@@ -52,6 +52,10 @@ public class ItemCollector : MonoBehaviour
                 {
                     nameBoxManager.text(2,2);
                     textBoxManager.text(6,8);
+                }
+                if (weaponInfo.weaponName == "Dinamita")
+                {
+
                 }
                 
             }
