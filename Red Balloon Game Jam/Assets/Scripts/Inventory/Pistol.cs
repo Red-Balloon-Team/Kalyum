@@ -8,22 +8,16 @@ public class Pistol : MonoBehaviour, IWeapon
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform bulletSpawnPoint;
     [SerializeField] private Transform bulletSpawnPointFlip;
-
     private Animator animator;
-    private TextBoxManager textBoxManager;
     private PlayerController playerController;
     private SpriteRenderer spriteRenderer;
-
     readonly int ATTACK_HASH = Animator.StringToHash("Attack");
 
     private void Awake()
-    {
-        textBoxManager= FindObjectOfType<TextBoxManager>();
+    { 
         playerController = FindObjectOfType<PlayerController>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-        textBoxManager.text(3,4);
-
     }
 
     private void Update()

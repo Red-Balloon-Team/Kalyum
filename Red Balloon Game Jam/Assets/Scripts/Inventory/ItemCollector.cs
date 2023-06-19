@@ -6,6 +6,7 @@ public class ItemCollector : MonoBehaviour
 {
     private WeaponInfo weaponInfo;
     private ItemText pickupPrompt;
+    private TextBoxManager textBoxManager;
 
     private PlayerControls playerControls;
     private GameObject currentItem;
@@ -13,6 +14,7 @@ public class ItemCollector : MonoBehaviour
 
     private void Awake()
     {
+        textBoxManager= FindObjectOfType<TextBoxManager>();
         playerControls = new PlayerControls();
         activeInventory = FindObjectOfType<ActiveInventory>();
         playerControls.Inventory.CollectItem.performed += ctx => CollectItem();
@@ -39,6 +41,15 @@ public class ItemCollector : MonoBehaviour
                 activeInventory.ToggleActiveHighlight(weaponInfo.weaponIndex);
                 Destroy(currentItem);
                 currentItem = null;
+                if(weaponInfo.weaponName=="Pistol")
+                {
+                    textBoxManager.text(3,4);
+                }
+                if(weaponInfo.weaponName=="Tasser")
+                {
+                    textBoxManager.text(6,8);
+                }
+                
             }
         }
     }
