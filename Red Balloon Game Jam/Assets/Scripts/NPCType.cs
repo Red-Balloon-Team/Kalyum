@@ -11,7 +11,6 @@ public class NPCType : MonoBehaviour
     private ItemText itemText;
     private bool isTalking = false;
     private bool success=false;
-    private bool repeat= false;
 
     private void Awake()
     {
