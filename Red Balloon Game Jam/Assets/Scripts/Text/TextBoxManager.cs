@@ -10,6 +10,7 @@ public class TextBoxManager : MonoBehaviour
     public GameObject textBox;
     public TextMeshProUGUI theText;
     public TextAsset textFile;
+    public int control=0;
     
     public string[] textLines;
 
@@ -71,6 +72,8 @@ public class TextBoxManager : MonoBehaviour
         {
             textBox.SetActive(false);
             textEnabled = false;
+            control=1;
+
         }
     }
 

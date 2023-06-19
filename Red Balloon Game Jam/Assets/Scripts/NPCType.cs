@@ -18,7 +18,6 @@ public class NPCType : MonoBehaviour
         textBoxManager = FindObjectOfType<TextBoxManager>();
         itemText = GetComponent<ItemText>();
     }
-
     public void InitConvers()
     {
         if (!isTalking)
@@ -29,9 +28,7 @@ public class NPCType : MonoBehaviour
                 textBoxManager.text(12, 13);
                 itemText.HidePrompt();
                 isTalking = true;
-                //timer.EnableTimer();
-
             }
         }
-    }
+    }    
 }
