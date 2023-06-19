@@ -10,7 +10,7 @@ public class NPCType : MonoBehaviour
     private Timer timer;
     private ItemText itemText;
     private bool isTalking = false;
-    private bool success=false;
+    //private bool success=false;
 
     private void Awake()
     {
@@ -30,13 +30,13 @@ public class NPCType : MonoBehaviour
                 itemText.HidePrompt();
                 isTalking = true;
             }
-            if(id==3 && success)
+            if(id==3 && !timer.finish)
             {
                 nameBoxManager.text(0,0);
                 textBoxManager.text(15, 16);
 
             }
-            if(id==3 && !success)
+            if(id==3 && timer.finish)
             {
                 nameBoxManager.text(0,0);
                 textBoxManager.text(14, 14);

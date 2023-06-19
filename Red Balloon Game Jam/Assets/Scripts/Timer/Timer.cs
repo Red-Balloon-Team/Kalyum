@@ -15,6 +15,7 @@ public class Timer : MonoBehaviour
     [Header("Limit Settings")]
     public bool hasLimit;
     public float timerLimit;
+    public bool finish=false;
 
     private bool isEnabled = false;
 
@@ -34,9 +35,11 @@ public class Timer : MonoBehaviour
 
             if (hasLimit && ((!countUp && currentTime <= timerLimit) || (countUp && currentTime >= timerLimit)))
             {
+                
                 currentTime = timerLimit;
                 SetTimerText();
                 timerText.color = Color.red;
+                finish=true;
                 isEnabled = false;
             }
 
