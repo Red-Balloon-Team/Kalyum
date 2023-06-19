@@ -8,12 +8,14 @@ public class NPCType : MonoBehaviour
     private TextBoxManager textBoxManager;
     private NameBoxManager nameBoxManager;
     private Timer timer;
+    private Door door;
     private ItemText itemText;
     private bool isTalking = false;
     //private bool success=false;
 
     private void Awake()
     {
+        door= FindObjectOfType<Door>();
         timer=FindObjectOfType<Timer>();
         nameBoxManager=FindObjectOfType<NameBoxManager>();
         textBoxManager = FindObjectOfType<TextBoxManager>();
@@ -34,6 +36,8 @@ public class NPCType : MonoBehaviour
             {
                 nameBoxManager.text(0,0);
                 textBoxManager.text(15, 16);
+                door.unlock=true;
+                Debug.Log(door.unlock);
 
             }
             if(id==3 && timer.finish)

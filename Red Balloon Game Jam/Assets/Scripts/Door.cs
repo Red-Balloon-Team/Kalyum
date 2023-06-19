@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
+    [SerializeField] private int id=0;
     private Collider2D[] colliders;
     private Animator animator;
     private ItemText itemText;
     private bool isOpen = false;
+    public bool unlock= false;
 
     readonly int OPEN_HASH = Animator.StringToHash("Open");
 
@@ -20,7 +22,7 @@ public class Door : MonoBehaviour
 
     public void OpenDoor()
     {
-        if (!isOpen)
+        if ((!isOpen && id!=1)||(id==1 && !isOpen && unlock))
         {
             animator.SetTrigger(OPEN_HASH);
             isOpen = true;

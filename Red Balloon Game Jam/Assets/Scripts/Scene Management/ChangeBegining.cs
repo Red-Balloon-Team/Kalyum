@@ -25,7 +25,6 @@ public class ChangeBegining : MonoBehaviour
             }
         }
         timer.finish=false;
-        timer.currentTime=10;
     }
 
     private IEnumerator LoadSceneRoutine()

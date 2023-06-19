@@ -107,7 +107,7 @@ public class Detection : MonoBehaviour
         else if(interactingWithButton)
         {
             timer.EnableTimer();
-            button.PressButton();
+            //button.PressButton();
         }
         else if (doorsInRange.Count > 0)
         {
