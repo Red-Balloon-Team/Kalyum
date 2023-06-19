@@ -9,6 +9,7 @@ public class Detection : MonoBehaviour
     private NPCType nPCType;
     private Timer timer;
     private List<Door> doorsInRange = new List<Door>();
+    private List<NPCType> npcInRange= new List<NPCType>();
     public GameObject currentItem;
 
     private bool interactingWithNPC = false;
@@ -47,6 +48,8 @@ public class Detection : MonoBehaviour
         }
         else if (collision.CompareTag("NPC"))
         {
+            NPCType nPCType= collision.GetComponent<NPCType>();
+            npcInRange.Add(nPCType);
             pickupPrompt = collision.GetComponentInChildren<ItemText>();
             pickupPrompt.NPCPrompt();
             currentItem = collision.gameObject;
@@ -84,12 +87,19 @@ public class Detection : MonoBehaviour
             pickupPrompt.HidePrompt();
             doorsInRange.Remove(door);
         }
+        else if (collision.CompareTag("NPC"))
+        {
+            NPCType nPCType = collision.GetComponent<NPCType>();
+            pickupPrompt.HidePrompt();
+            npcInRange.Remove(nPCType);
+        }
     }
 
     private void Interact()
     {
-        if (interactingWithNPC)
+        if (npcInRange.Count>0)
         {
+            NPCType nPCType= GetClosestNPC();
             nPCType.InitConvers();
         }
         else if(interactingWithButton)
@@ -101,6 +111,24 @@ public class Detection : MonoBehaviour
             Door closestDoor = GetClosestDoor();
             closestDoor.OpenDoor();
         }
+    }
+    private NPCType GetClosestNPC()
+    {
+        NPCType closestNPC = null;
+        float closestDistance = Mathf.Infinity;
+        Vector3 playerPosition = transform.position;
+
+        foreach (NPCType nPCType in npcInRange)
+        {
+            float distance = Vector3.Distance(playerPosition, nPCType.transform.position);
+            if (distance < closestDistance)
+            {
+                closestDistance = distance;
+                closestNPC = nPCType;
+            }
+        }
+
+        return closestNPC;
     }
 
     private Door GetClosestDoor()
