@@ -37,14 +37,26 @@ public class NPCType : MonoBehaviour
                 nameBoxManager.text(0,0);
                 textBoxManager.text(15, 16);
                 door.unlock=true;
-                Debug.Log(door.unlock);
+                itemText.HidePrompt();
+                isTalking = true;
+                //Debug.Log(door.unlock);
 
             }
             if(id==3 && timer.finish)
             {
                 nameBoxManager.text(0,0);
                 textBoxManager.text(14, 14);
+                itemText.HidePrompt();
+                isTalking = true;
             }
+            if(id==4){
+                nameBoxManager.text(1,1);
+                textBoxManager.text(17, 18);
+                itemText.HidePrompt();
+                isTalking = true;
+            }
+             isTalking=false;
         }
+        isTalking=false;
     }    
 }
