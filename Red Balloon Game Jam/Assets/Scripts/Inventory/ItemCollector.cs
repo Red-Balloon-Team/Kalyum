@@ -59,7 +59,9 @@ public class ItemCollector : MonoBehaviour
                 }
                 if (weaponInfo.weaponName == "Dinamita")
                 {
-                    
+                    imageBoxManager.Enable();
+                    nameBoxManager.text(2,2);
+                    textBoxManager.text(23,23);
                 }
                 
             }
