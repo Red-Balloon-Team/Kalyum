@@ -78,9 +78,19 @@ public class TextBoxManager : MonoBehaviour
         {
             textBox.SetActive(false);
             textEnabled = false;
-            imageBoxManager.Disable();
-            evelynBoxManager.Disable();
-            generalBoxManager.Disable();
+            if(imageBoxManager.isActiveAndEnabled)
+            {
+                imageBoxManager.Disable();
+            }else if(evelynBoxManager.isActiveAndEnabled)
+            {
+                evelynBoxManager.Disable();
+            }else if(generalBoxManager.isActiveAndEnabled)
+            {
+                generalBoxManager.Disable();
+            }
+            
+            
+            
             control=1;
         }
     }

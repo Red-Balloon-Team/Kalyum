@@ -6,7 +6,7 @@ public class UnlockDoor : MonoBehaviour
 {
     public int kills=0;
     public int saved=0;
-    public GameObject gameObject;
+    private GameObject game;
     private Timer timer;
     
     // Start is called before the first frame update
@@ -25,6 +25,6 @@ public class UnlockDoor : MonoBehaviour
     }
     public void unlock()
     {
-        gameObject.SetActive(false);
+        game.SetActive(false);
     }
 }
