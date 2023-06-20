@@ -8,7 +8,6 @@ public class Detection : MonoBehaviour
     private ItemText pickupPrompt;
     private NPCType nPCType;
     private Timer timer;
-    private Password password;
     private List<Door> doorsInRange = new List<Door>();
     private List<NPCType> npcInRange= new List<NPCType>();
     private List<EchoChanger> echoInRange = new List<EchoChanger>();
@@ -16,9 +15,12 @@ public class Detection : MonoBehaviour
     public GameObject currentItem;
     private DynamiteFactory dynamiteFactory;
 
+    public GameObject password;
+
     private bool interactingWithButton = false;
     private bool interactingWithDynamite = false;
-    private bool interactingWithNumpad = false;
+    private bool interactingWithNumPad = false;
+
 
     private PlayerControls playerControls;
     private Button button;
@@ -52,14 +54,6 @@ public class Detection : MonoBehaviour
             // currentItem = collision.gameObject;
             interactingWithButton=false;
         }
-        if (collision.CompareTag("Numpad"))
-        {
-            pickupPrompt = collision.GetComponentInChildren<ItemText>();
-            pickupPrompt.NumpadPrompt();
-            currentItem = collision.gameObject;
-            interactingWithNumpad = true;
-
-        }
         else if (collision.CompareTag("Door"))
         {
             Door door = collision.GetComponent<Door>();
@@ -74,6 +68,7 @@ public class Detection : MonoBehaviour
             currentItem = collision.gameObject;
             interactingWithButton = true;
             interactingWithDynamite = false;
+            interactingWithNumPad = false;
         }
         else if (collision.CompareTag("DynamiteFactory"))
         {
@@ -82,6 +77,16 @@ public class Detection : MonoBehaviour
             currentItem = collision.gameObject;
             interactingWithButton = false;
             interactingWithDynamite = true;
+            interactingWithNumPad = false;
+        }
+        else if (collision.CompareTag("Numpad"))
+        {
+            pickupPrompt = collision.GetComponentInChildren<ItemText>();
+            pickupPrompt.NumpadPrompt();
+            currentItem = collision.gameObject;
+            interactingWithButton = false;
+            interactingWithDynamite = false;
+            interactingWithNumPad = true;
         }
         else if (collision.CompareTag("Echo"))
         {
@@ -127,6 +132,7 @@ public class Detection : MonoBehaviour
             pickupPrompt.HidePrompt();
             npcInRange.Remove(nPCType);
         }
+        
     }
 
     private void Interact()
@@ -147,16 +153,15 @@ public class Detection : MonoBehaviour
             timer.currentTime=40;
             timer.stopCounting=false;
         }
-        else if (interactingWithNumpad)
-        {
-            password = FindObjectOfType<Password>();
-            password.ActiveNumPad();
-        }
         else if(interactingWithDynamite)
         {
             dynamiteFactory = FindObjectOfType<DynamiteFactory>();
             dynamiteFactory.PressButton();
             dynamiteFactory.CreateDynamite();
+        }
+        else if (interactingWithNumPad)
+        {
+            password.gameObject.SetActive(true);
         }
         else if (doorsInRange.Count > 0)
         {
@@ -169,8 +174,6 @@ public class Detection : MonoBehaviour
             closestEcho.EchoChangeScene();
         }
         interactingWithButton=false;
-        interactingWithNumpad = false;
-        interactingWithDynamite = false;
     }
     private NPCType GetClosestNPC()
     {
