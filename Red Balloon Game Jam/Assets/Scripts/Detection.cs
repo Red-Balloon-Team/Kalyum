@@ -121,6 +121,7 @@ public class Detection : MonoBehaviour
         {
             dynamiteFactory = FindObjectOfType<DynamiteFactory>();
             dynamiteFactory.PressButton();
+            dynamiteFactory.CreateDynamite();
         }
         else if (doorsInRange.Count > 0)
         {

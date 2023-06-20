@@ -9,6 +9,7 @@ TagManager:
   - NPC
   - Door
   - Button
+  - DynamiteFactory
   layers:
   - Default
   - TransparentFX

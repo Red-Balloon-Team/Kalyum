@@ -1,55 +1,47 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+// using System.Collections;
+// using System.Collections.Generic;
+// using UnityEngine;
 
-public class Dynamite : MonoBehaviour
-{
-    public GameObject dynamite;
-    private DynamiteFactory dynamiteFactory;
-    public float distance = 6f;
-    public float velocity = 2f;
-    private bool createDynamite = false;
-    private Vector3 initialPisition;
-    private Vector3 finalPosition;
-
-    private void Awake()
-    {
-        dynamiteFactory = FindObjectOfType<DynamiteFactory>();
-    }
-
-    private void Start()
-    {
-        initialPisition = dynamite.transform.position;
-        finalPosition = initialPisition + Vector3.left * distance;
-        dynamite.SetActive(false);
-        CreateDynamite();
-    }
-
-    private void Update()
-    {
-        if (createDynamite)
-        {
-            Vector3 movimiento = Vector3.left * velocity * Time.deltaTime;
-            dynamite.transform.Translate(movimiento);
-
-            if (Vector3.Distance(dynamite.transform.position, initialPisition) >= distance)
-            {
-                createDynamite = false;
-            }
-            else if(Vector3.Distance(dynamite.transform.position, initialPisition) <= distance && !dynamiteFactory.stop)
-            {
-                dynamiteFactory.StopMovement();
-            }
-
-        }
-    }
-
-    public void CreateDynamite()
-    {
-        dynamite.SetActive(true);
-        createDynamite = true;
-        dynamite.transform.position = initialPisition;
-    }
-}
+// public class Dynamite : MonoBehaviour
+// {
+//     private Transform dynamite;
+//     private DynamiteFactory dynamiteFactory;
+//     public float distance = 6f;
+//     public float velocity = 2f;
+//     private bool createDynamite = false;
+//     private Vector3 initialPisition;
+//     private Vector3 finalPosition;
 
 
+//     private void Start()
+//     {
+//         initialPisition = transform.position;
+//         finalPosition = initialPisition + Vector3.left * distance;
+//         gameObject.SetActive(false);
+//     }
+
+//     private void Update()
+//     {
+//         if (createDynamite)
+//         {
+//             Vector3 movimiento = Vector3.left * velocity * Time.deltaTime;
+//             transform.Translate(movimiento);
+
+//             if (Vector3.Distance(transform.position, initialPisition) >= distance)
+//             {
+//                 createDynamite = false;
+//             }
+//             else if (Vector3.Distance(transform.position, initialPisition) <= distance && !dynamiteFactory.stop)
+//             {
+//                 dynamiteFactory.StopMovement();
+//             }
+//         }
+//     }
+
+//     public void CreateDynamite()
+//     {
+//         gameObject.SetActive(true);
+//         createDynamite = true;
+//         transform.position = initialPisition;
+//     }
+// }
