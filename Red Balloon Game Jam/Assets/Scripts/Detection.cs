@@ -8,6 +8,7 @@ public class Detection : MonoBehaviour
     private ItemText pickupPrompt;
     private NPCType nPCType;
     private Timer timer;
+    private Password password;
     private List<Door> doorsInRange = new List<Door>();
     private List<NPCType> npcInRange= new List<NPCType>();
     private List<EchoChanger> echoInRange = new List<EchoChanger>();
@@ -17,6 +18,7 @@ public class Detection : MonoBehaviour
 
     private bool interactingWithButton = false;
     private bool interactingWithDynamite = false;
+    private bool interactingWithNumpad = false;
 
     private PlayerControls playerControls;
     private Button button;
@@ -49,6 +51,14 @@ public class Detection : MonoBehaviour
             pickupPrompt.NPCPrompt();
             // currentItem = collision.gameObject;
             interactingWithButton=false;
+        }
+        if (collision.CompareTag("Numpad"))
+        {
+            pickupPrompt = collision.GetComponentInChildren<ItemText>();
+            pickupPrompt.NumpadPrompt();
+            currentItem = collision.gameObject;
+            interactingWithNumpad = true;
+
         }
         else if (collision.CompareTag("Door"))
         {
@@ -94,6 +104,11 @@ public class Detection : MonoBehaviour
             pickupPrompt.HidePrompt();
             currentItem = null;
         }
+        else if (collision.CompareTag("Numpad"))
+        {
+            pickupPrompt.HidePrompt();
+            currentItem = null;
+        }
         else if (collision.CompareTag("Door"))
         {
             Door door = collision.GetComponent<Door>();
@@ -132,6 +147,11 @@ public class Detection : MonoBehaviour
             timer.currentTime=40;
             timer.stopCounting=false;
         }
+        else if (interactingWithNumpad)
+        {
+            password = FindObjectOfType<Password>();
+            password.ActiveNumPad();
+        }
         else if(interactingWithDynamite)
         {
             dynamiteFactory = FindObjectOfType<DynamiteFactory>();
@@ -149,6 +169,8 @@ public class Detection : MonoBehaviour
             closestEcho.EchoChangeScene();
         }
         interactingWithButton=false;
+        interactingWithNumpad = false;
+        interactingWithDynamite = false;
     }
     private NPCType GetClosestNPC()
     {

@@ -75,6 +75,15 @@ public class ItemText : MonoBehaviour
         Vector3 promptPosition = new Vector3(targetPosition.x - 0.2f, targetPosition.y + 1.5f, targetPosition.z);
         promptText.rectTransform.position = promptPosition;
     }
+    public void NumpadPrompt()
+    {
+        promptText.text = "Presiona E para introducir el código";
+        canvas.gameObject.SetActive(true);
+
+        Vector3 targetPosition = targetTransform.position;
+        Vector3 promptPosition = new Vector3(targetPosition.x - 0.2f, targetPosition.y + 1.5f, targetPosition.z);
+        promptText.rectTransform.position = promptPosition;
+    }
 
     public void HidePrompt()
     {
