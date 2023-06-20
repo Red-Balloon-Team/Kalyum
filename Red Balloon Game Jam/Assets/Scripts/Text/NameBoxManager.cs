@@ -83,7 +83,6 @@ public class NameBoxManager : MonoBehaviour
                 theText.text = line;
                 break;
             }
-
             yield return new WaitForSeconds(typeSpeed);
         }
 
