@@ -6,11 +6,7 @@ public class UnlockDoor : MonoBehaviour
 {
     public int kills=0;
     public int saved=0;
-    private GameObject gam;
-    private Timer timer;
-    
-    // Start is called before the first frame update
-    
+    private Timer timer;    
     void Update(){
         countKills();
     }

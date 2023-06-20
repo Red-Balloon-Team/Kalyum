@@ -44,7 +44,6 @@ public class Timer : MonoBehaviour
                 finish=true;
                 isEnabled = false;
             }
-
             SetTimerText();
         }
     }
