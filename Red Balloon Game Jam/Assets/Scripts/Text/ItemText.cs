@@ -57,6 +57,15 @@ public class ItemText : MonoBehaviour
         Vector3 promptPosition = new Vector3(targetPosition.x - 0.2f, targetPosition.y + 1.5f, targetPosition.z);
         promptText.rectTransform.position = promptPosition;
     }
+    public void DynamitePrompt()
+    {
+        promptText.text = "Presiona E para crear la dinamita";
+        canvas.gameObject.SetActive(true);
+
+        Vector3 targetPosition = targetTransform.position;
+        Vector3 promptPosition = new Vector3(targetPosition.x - 0.2f, targetPosition.y + 1.5f, targetPosition.z);
+        promptText.rectTransform.position = promptPosition;
+    }
 
     public void HidePrompt()
     {

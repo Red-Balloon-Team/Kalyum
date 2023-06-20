@@ -55,7 +55,7 @@ public class ItemCollector : MonoBehaviour
                 }
                 if (weaponInfo.weaponName == "Dinamita")
                 {
-
+                    
                 }
                 
             }

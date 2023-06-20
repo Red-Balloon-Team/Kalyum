@@ -5,11 +5,17 @@ using UnityEngine;
 public class Dynamite : MonoBehaviour
 {
     public GameObject dynamite;
+    private DynamiteFactory dynamiteFactory;
     public float distance = 6f;
     public float velocity = 2f;
     private bool createDynamite = false;
     private Vector3 initialPisition;
     private Vector3 finalPosition;
+
+    private void Awake()
+    {
+        dynamiteFactory = FindObjectOfType<DynamiteFactory>();
+    }
 
     private void Start()
     {
@@ -30,6 +36,11 @@ public class Dynamite : MonoBehaviour
             {
                 createDynamite = false;
             }
+            else if(Vector3.Distance(dynamite.transform.position, initialPisition) <= distance && !dynamiteFactory.stop)
+            {
+                dynamiteFactory.StopMovement();
+            }
+
         }
     }
 

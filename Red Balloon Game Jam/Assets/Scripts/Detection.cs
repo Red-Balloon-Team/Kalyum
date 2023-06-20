@@ -11,8 +11,10 @@ public class Detection : MonoBehaviour
     private List<Door> doorsInRange = new List<Door>();
     private List<NPCType> npcInRange= new List<NPCType>();
     public GameObject currentItem;
+    private DynamiteFactory dynamiteFactory;
 
     private bool interactingWithButton = false;
+    private bool interactingWithDynamite = false;
 
     private PlayerControls playerControls;
     private Button button;
@@ -59,12 +61,26 @@ public class Detection : MonoBehaviour
             pickupPrompt.ButtonPrompt();
             currentItem = collision.gameObject;
             interactingWithButton = true;
+            interactingWithDynamite = false;
+        }
+        else if (collision.CompareTag("DynamiteFactory"))
+        {
+            pickupPrompt = collision.GetComponentInChildren<ItemText>();
+            pickupPrompt.DynamitePrompt();
+            currentItem = collision.gameObject;
+            interactingWithButton = false;
+            interactingWithDynamite = true;
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject == currentItem)
+        {
+            pickupPrompt.HidePrompt();
+            currentItem = null;
+        }
+        else if (collision.CompareTag("DynamiteFactory"))
         {
             pickupPrompt.HidePrompt();
             currentItem = null;
@@ -93,11 +109,16 @@ public class Detection : MonoBehaviour
             }
             nPCType.hasTalked=true;
         }
-        else if(interactingWithButton)
+        else if (interactingWithButton)
         {
             timer.EnableTimer();
             button = FindObjectOfType<Button>();
             button.PressButton();
+        }
+        else if(interactingWithDynamite)
+        {
+            dynamiteFactory = FindObjectOfType<DynamiteFactory>();
+            dynamiteFactory.PressButton();
         }
         else if (doorsInRange.Count > 0)
         {
