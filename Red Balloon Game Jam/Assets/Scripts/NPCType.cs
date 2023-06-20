@@ -41,6 +41,7 @@ public class NPCType : MonoBehaviour
                 door.unlock=true;
                 itemText.HidePrompt();
                 isTalking = true;
+                timer.DisableTimer();
                 //Debug.Log(door.unlock);
 
             }
@@ -50,6 +51,7 @@ public class NPCType : MonoBehaviour
                 textBoxManager.text(14, 14);
                 itemText.HidePrompt();
                 isTalking = true;
+                timer.DisableTimer();
             }
             if(id==4 && !hasTalked){
                 nameBoxManager.text(1,1);

@@ -16,6 +16,8 @@ public class Timer : MonoBehaviour
     public bool hasLimit;
     public float timerLimit;
     public bool finish=false;
+    public bool stopCounting=false;
+    public float finalTime;
 
     private bool isEnabled = false;
 
@@ -24,11 +26,11 @@ public class Timer : MonoBehaviour
         if (isEnabled)
         {
             textBox.SetActive(true);
-            if (countUp)
+            if (countUp && !stopCounting)
             {
                 currentTime += Time.deltaTime;
             }
-            else
+            else if(!countUp && !stopCounting)
             {
                 currentTime -= Time.deltaTime;
             }
@@ -52,6 +54,12 @@ public class Timer : MonoBehaviour
         textBox.SetActive(true);
         isEnabled = true;
     }
+    public void DisableTimer()
+    {
+        textBox.SetActive(false);
+        isEnabled= false;
+        timerText.color = Color.white;
+    }
 
     private void SetTimerText()
     {
@@ -60,5 +68,9 @@ public class Timer : MonoBehaviour
         int milliseconds = Mathf.FloorToInt((currentTime * 1000) % 100);
         string timeString = string.Format("{0:00}:{1:00}:{2:00}", minutes, seconds, milliseconds);
         timerText.text = timeString;
+    }
+    public void stop()
+    {
+        stopCounting=true;
     }
 }
