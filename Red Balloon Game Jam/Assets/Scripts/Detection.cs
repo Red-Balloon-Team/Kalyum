@@ -128,7 +128,7 @@ public class Detection : MonoBehaviour
             timer.EnableTimer();
             button = FindObjectOfType<Button>();
             button.PressButton();
-            timer.currentTime=20;
+            timer.currentTime=40;
             timer.stopCounting=false;
         }
         else if(interactingWithDynamite)
@@ -147,6 +147,7 @@ public class Detection : MonoBehaviour
             EchoChanger closestEcho = GetClosestEcho();
             closestEcho.EchoChangeScene();
         }
+        interactingWithButton=false;
     }
     private NPCType GetClosestNPC()
     {
