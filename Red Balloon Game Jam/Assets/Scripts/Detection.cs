@@ -12,7 +12,6 @@ public class Detection : MonoBehaviour
     private List<NPCType> npcInRange= new List<NPCType>();
     public GameObject currentItem;
 
-    private bool interactingWithNPC = false;
     private bool interactingWithButton = false;
 
     private PlayerControls playerControls;
@@ -20,7 +19,6 @@ public class Detection : MonoBehaviour
 
     private void Awake()
     {
-        button = FindObjectOfType<Button>();
         timer=FindObjectOfType<Timer>();
         nPCType = FindObjectOfType<NPCType>();
         playerControls = new PlayerControls();
@@ -39,15 +37,6 @@ public class Detection : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // if (collision.CompareTag("Item"))
-        // {
-        //     weaponInfo = collision.GetComponent<Pickup>().GetWeaponInfo();
-        //     pickupPrompt = collision.GetComponentInChildren<ItemText>();
-        //     pickupPrompt.ShowPrompt(weaponInfo.weaponName);
-        //     currentItem = collision.gameObject;
-        //     interactingWithNPC = false;
-        //     interactingWithButton=false;
-        // }
         if (collision.CompareTag("NPC"))
         {
             NPCType nPCType= collision.GetComponent<NPCType>();
@@ -55,7 +44,6 @@ public class Detection : MonoBehaviour
             pickupPrompt = collision.GetComponentInChildren<ItemText>();
             pickupPrompt.NPCPrompt();
             // currentItem = collision.gameObject;
-            interactingWithNPC = true;
             interactingWithButton=false;
         }
         else if (collision.CompareTag("Door"))
@@ -71,7 +59,6 @@ public class Detection : MonoBehaviour
             pickupPrompt.ButtonPrompt();
             currentItem = collision.gameObject;
             interactingWithButton = true;
-            interactingWithNPC=false;
         }
     }
 
@@ -81,7 +68,6 @@ public class Detection : MonoBehaviour
         {
             pickupPrompt.HidePrompt();
             currentItem = null;
-            interactingWithNPC = false;
         }
         else if (collision.CompareTag("Door"))
         {
@@ -107,7 +93,8 @@ public class Detection : MonoBehaviour
         else if(interactingWithButton)
         {
             timer.EnableTimer();
-            //button.PressButton();
+            button = FindObjectOfType<Button>();
+            button.PressButton();
         }
         else if (doorsInRange.Count > 0)
         {
