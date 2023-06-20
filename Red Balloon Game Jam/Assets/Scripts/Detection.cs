@@ -21,6 +21,7 @@ public class Detection : MonoBehaviour
     private bool interactingWithDynamite = false;
     private bool interactingWithNumPad = false;
 
+    private bool passwordCorrect = false;
 
     private PlayerControls playerControls;
     private Button button;
@@ -109,7 +110,7 @@ public class Detection : MonoBehaviour
             pickupPrompt.HidePrompt();
             currentItem = null;
         }
-        else if (collision.CompareTag("Numpad"))
+        else if (collision.CompareTag("Numpad") && !passwordCorrect)
         {
             pickupPrompt.HidePrompt();
             currentItem = null;
@@ -161,6 +162,7 @@ public class Detection : MonoBehaviour
         }
         else if (interactingWithNumPad)
         {
+            passwordCorrect = true;
             password.gameObject.SetActive(true);
         }
         else if (doorsInRange.Count > 0)
