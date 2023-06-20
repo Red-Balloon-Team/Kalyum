@@ -88,7 +88,10 @@ public class Detection : MonoBehaviour
         if (npcInRange.Count>0)
         {
             NPCType nPCType= GetClosestNPC();
-            nPCType.InitConvers();
+            if(!nPCType.hasTalked){
+                nPCType.InitConvers();
+            }
+            nPCType.hasTalked=true;
         }
         else if(interactingWithButton)
         {

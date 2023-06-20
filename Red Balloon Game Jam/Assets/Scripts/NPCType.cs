@@ -11,6 +11,7 @@ public class NPCType : MonoBehaviour
     private Door door;
     private ItemText itemText;
     private bool isTalking = false;
+    public bool hasTalked=false;
     //private bool success=false;
 
     private void Awake()
@@ -25,14 +26,15 @@ public class NPCType : MonoBehaviour
     {
         if (!isTalking)
         {
-            if (id == 2)
+            if (id == 2 && !hasTalked)
             {
                 nameBoxManager.text(0,0);
                 textBoxManager.text(12, 13);
                 itemText.HidePrompt();
                 isTalking = true;
+                hasTalked=true;
             }
-            if(id==3 && !timer.finish)
+            if(id==3 && !timer.finish && !hasTalked)
             {
                 nameBoxManager.text(0,0);
                 textBoxManager.text(15, 16);
@@ -42,21 +44,22 @@ public class NPCType : MonoBehaviour
                 //Debug.Log(door.unlock);
 
             }
-            if(id==3 && timer.finish)
+            if(id==3 && timer.finish && !hasTalked)
             {
                 nameBoxManager.text(0,0);
                 textBoxManager.text(14, 14);
                 itemText.HidePrompt();
                 isTalking = true;
             }
-            if(id==4){
+            if(id==4 && !hasTalked){
                 nameBoxManager.text(1,1);
-                textBoxManager.text(17, 18);
+                textBoxManager.text(17, 21);
                 itemText.HidePrompt();
                 isTalking = true;
             }
-             isTalking=false;
         }
         isTalking=false;
-    }    
+        //hasTalked=false;
+    }
+        
 }
