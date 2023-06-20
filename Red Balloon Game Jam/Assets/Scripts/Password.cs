@@ -14,6 +14,11 @@ public class Password : MonoBehaviour
     public TMP_Text UiText = null;
     public bool correct = false;
 
+    public void ActiveNumPad()
+    {
+        gameObject.SetActive(true);
+    }
+
     public void EnterCode(string nums)
     {
         if (index < 4)
