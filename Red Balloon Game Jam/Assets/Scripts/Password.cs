@@ -5,11 +5,21 @@ using TMPro;
 
 public class Password : MonoBehaviour
 {
+    public UnityEngine.Rendering.Universal.Light2D light2D;
     private string password = "4781";
     private string input = null;
     private int index = 0;
     public TMP_Text UiText = null;
     public bool correct = false;
+
+    private void Awake()
+    {
+        light2D = GetComponent<UnityEngine.Rendering.Universal.Light2D>();
+        if (light2D == null)
+        {
+            Debug.Log("Light2D not found");
+        }
+    }
 
     public void EnterCode(string nums)
     {
@@ -28,6 +38,7 @@ public class Password : MonoBehaviour
         {
             correct = true;
             Debug.Log("Correct");
+            light2D.intensity = 1f;
         }
         else
         {
