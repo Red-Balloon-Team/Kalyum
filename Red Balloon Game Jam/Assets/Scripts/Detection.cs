@@ -164,6 +164,7 @@ public class Detection : MonoBehaviour
         {
             passwordCorrect = true;
             password.gameObject.SetActive(true);
+            interactingWithNumPad=false;
         }
         else if (doorsInRange.Count > 0)
         {
