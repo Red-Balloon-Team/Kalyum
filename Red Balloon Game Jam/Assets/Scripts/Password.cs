@@ -13,6 +13,7 @@ public class Password : MonoBehaviour
     private int index = 0;
     public TMP_Text UiText = null;
     public bool correct = false;
+    private LightEffect lightEffect;
 
     public void ActiveNumPad()
     {
@@ -37,6 +38,8 @@ public class Password : MonoBehaviour
             light2D = FindObjectOfType<UnityEngine.Rendering.Universal.Light2D>();
             light2D.intensity = 1f;
             gameObject.SetActive(false);
+            lightEffect = FindObjectOfType<LightEffect>();
+            lightEffect.gameObject.SetActive(false);
         }
         else
         {
