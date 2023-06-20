@@ -10,6 +10,7 @@ public class Detection : MonoBehaviour
     private Timer timer;
     private List<Door> doorsInRange = new List<Door>();
     private List<NPCType> npcInRange= new List<NPCType>();
+    private List<EchoChanger> echoInRange = new List<EchoChanger>();
     public GameObject currentItem;
     private DynamiteFactory dynamiteFactory;
 
@@ -71,6 +72,13 @@ public class Detection : MonoBehaviour
             interactingWithButton = false;
             interactingWithDynamite = true;
         }
+        else if (collision.CompareTag("Echo"))
+        {
+            EchoChanger echoChanger = collision.GetComponent<EchoChanger>();
+            echoInRange.Add(echoChanger);
+            pickupPrompt = echoChanger.GetComponentInChildren<ItemText>();
+            pickupPrompt.EchoPrompt();
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -90,6 +98,12 @@ public class Detection : MonoBehaviour
             Door door = collision.GetComponent<Door>();
             pickupPrompt.HidePrompt();
             doorsInRange.Remove(door);
+        }
+        else if (collision.CompareTag("Echo"))
+        {
+            EchoChanger echoChanger = collision.GetComponent<EchoChanger>();
+            pickupPrompt.HidePrompt();
+            echoInRange.Remove(echoChanger);
         }
         else if (collision.CompareTag("NPC"))
         {
@@ -128,6 +142,11 @@ public class Detection : MonoBehaviour
             Door closestDoor = GetClosestDoor();
             closestDoor.OpenDoor();
         }
+        else if (echoInRange.Count > 0)
+        {
+            EchoChanger closestEcho = GetClosestEcho();
+            closestEcho.EchoChangeScene();
+        }
     }
     private NPCType GetClosestNPC()
     {
@@ -165,5 +184,24 @@ public class Detection : MonoBehaviour
         }
 
         return closestDoor;
+    }
+
+    private EchoChanger GetClosestEcho()
+    {
+        EchoChanger closestEcho = null;
+        float closestDistance = Mathf.Infinity;
+        Vector3 playerPosition = transform.position;
+
+        foreach (EchoChanger echoChanger in echoInRange)
+        {
+            float distance = Vector3.Distance(playerPosition, echoChanger.transform.position);
+            if (distance < closestDistance)
+            {
+                closestDistance = distance;
+                closestEcho = echoChanger;
+            }
+        }
+
+        return closestEcho;
     }
 }
