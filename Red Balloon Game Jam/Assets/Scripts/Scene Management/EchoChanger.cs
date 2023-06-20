@@ -3,21 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ChangeScene : MonoBehaviour
+public class EchoChanger : MonoBehaviour
 {
     [SerializeField] private string sceneToLoad;
     [SerializeField] private string sceneTransitionName;
 
     private float waitToLoadTime = 1f;
 
-    private void OnTriggerEnter2D(Collider2D other)
+    public void EchoChangeScene()
     {
-        if (other.gameObject.GetComponent<PlayerController>())
-        {
-            SceneManagement.Instance.SetTransitionName(sceneTransitionName);
-            Fade.Instance.FadeToBlack();
-            StartCoroutine(LoadSceneRoutine());
-        }
+        SceneManagement.Instance.SetTransitionName(sceneTransitionName);
+        Fade.Instance.FadeToBlack();
+        StartCoroutine(LoadSceneRoutine());
+
     }
 
     private IEnumerator LoadSceneRoutine()
@@ -29,5 +27,4 @@ public class ChangeScene : MonoBehaviour
         }
         SceneManager.LoadScene(sceneToLoad);
     }
-
 }
