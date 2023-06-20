@@ -12,9 +12,11 @@ public class ItemCollector : MonoBehaviour
     private PlayerControls playerControls;
     private GameObject currentItem;
     private ActiveInventory activeInventory;
+    private AltavozBoxManager imageBoxManager;
 
     private void Awake()
     {
+        imageBoxManager= FindObjectOfType<AltavozBoxManager>();
         nameBoxManager=FindObjectOfType<NameBoxManager>();
         textBoxManager= FindObjectOfType<TextBoxManager>();
         playerControls = new PlayerControls();
@@ -45,11 +47,13 @@ public class ItemCollector : MonoBehaviour
                 currentItem = null;
                 if(weaponInfo.weaponName=="Pistola")
                 {
+                    imageBoxManager.Enable();
                     nameBoxManager.text(2,2);
                     textBoxManager.text(3,4);
                 }
                 if(weaponInfo.weaponName=="Tasser")
                 {
+                    imageBoxManager.Enable();
                     nameBoxManager.text(2,2);
                     textBoxManager.text(6,8);
                 }

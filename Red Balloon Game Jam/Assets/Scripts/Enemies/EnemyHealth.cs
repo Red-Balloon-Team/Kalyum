@@ -16,6 +16,7 @@ public class EnemyHealth : MonoBehaviour
     private NameBoxManager nameBoxManager;
     private TextBoxManager textBoxManager;
     private EnemyHuman enemyHuman;
+    private AltavozBoxManager imageBoxManager;
     private ItemText itemText;
     private float stunDuration = 3f;
 
@@ -34,6 +35,7 @@ public class EnemyHealth : MonoBehaviour
 
 
     private void Awake() {
+        imageBoxManager= FindObjectOfType<AltavozBoxManager>();
         nameBoxManager=FindObjectOfType<NameBoxManager>();
         animator = GetComponent<Animator>();
         enemyHuman = GetComponent<EnemyHuman>();
@@ -57,6 +59,7 @@ public class EnemyHealth : MonoBehaviour
         currentHealth -= damage;
         if(id==1)
             {
+                imageBoxManager.Enable();
                 nameBoxManager.text(2,2);
                 textBoxManager.text(5,5);
             }
@@ -78,6 +81,7 @@ public class EnemyHealth : MonoBehaviour
             itemText.EnemyHumanPrompt();
             if(id==2)
             {
+                imageBoxManager.Enable();
                 nameBoxManager.text(2,2);
                 textBoxManager.text(9,9);
             }

@@ -8,6 +8,7 @@ public class EnemyHuman : MonoBehaviour
     private PlayerControls playerControls;
     private UnlockDoor unlockDoor;
     private TextBoxManager textBoxManager;
+    private AltavozBoxManager imageBoxManager;
     private NameBoxManager nameBoxManager;
     private EnemyHealth enemyHealth;
     public bool isStunned = false;
@@ -16,6 +17,7 @@ public class EnemyHuman : MonoBehaviour
 
     private void Awake()
     {
+        imageBoxManager= FindObjectOfType<AltavozBoxManager>();
         animator = GetComponent<Animator>();
         nameBoxManager=FindObjectOfType<NameBoxManager>();
         textBoxManager= FindObjectOfType<TextBoxManager>();
@@ -48,6 +50,7 @@ public class EnemyHuman : MonoBehaviour
             
             if(enemyHealth.id==2)
             {
+                imageBoxManager.Enable();
                 nameBoxManager.text(2,2);
                 textBoxManager.text(10,11);
             }

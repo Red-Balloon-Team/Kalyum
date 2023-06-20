@@ -7,6 +7,9 @@ public class NPCType : MonoBehaviour
     [SerializeField] public int id;
     private TextBoxManager textBoxManager;
     private NameBoxManager nameBoxManager;
+    private AltavozBoxManager imageBoxManager;
+    private EvelynBoxManager evelynBoxManager;
+    private GeneralBoxManager generalBoxManager;
     private Timer timer;
     private Door door;
     private ItemText itemText;
@@ -16,6 +19,9 @@ public class NPCType : MonoBehaviour
 
     private void Awake()
     {
+        imageBoxManager= FindObjectOfType<AltavozBoxManager>();
+        evelynBoxManager= FindObjectOfType<EvelynBoxManager>();
+        generalBoxManager= FindObjectOfType<GeneralBoxManager>();
         door= FindObjectOfType<Door>();
         timer=FindObjectOfType<Timer>();
         nameBoxManager=FindObjectOfType<NameBoxManager>();
@@ -33,6 +39,7 @@ public class NPCType : MonoBehaviour
                 itemText.HidePrompt();
                 isTalking = true;
                 hasTalked=true;
+                generalBoxManager.Enable();
             }
             if(id==3 && !timer.finish && !hasTalked)
             {
@@ -41,6 +48,7 @@ public class NPCType : MonoBehaviour
                 door.unlock=true;
                 itemText.HidePrompt();
                 isTalking = true;
+                generalBoxManager.Enable();
                 timer.DisableTimer();
                 //Debug.Log(door.unlock);
 
@@ -51,6 +59,7 @@ public class NPCType : MonoBehaviour
                 textBoxManager.text(14, 14);
                 itemText.HidePrompt();
                 isTalking = true;
+                generalBoxManager.Enable();
                 timer.DisableTimer();
             }
             if(id==4 && !hasTalked){
@@ -58,6 +67,7 @@ public class NPCType : MonoBehaviour
                 textBoxManager.text(17, 21);
                 itemText.HidePrompt();
                 isTalking = true;
+                evelynBoxManager.Enable();
             }
         }
         isTalking=false;

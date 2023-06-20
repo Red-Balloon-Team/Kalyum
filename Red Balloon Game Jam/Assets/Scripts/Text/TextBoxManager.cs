@@ -10,6 +10,10 @@ public class TextBoxManager : MonoBehaviour
     public GameObject textBox;
     public TextMeshProUGUI theText;
     public TextAsset textFile;
+    private AltavozBoxManager imageBoxManager;
+    private EvelynBoxManager evelynBoxManager;
+    private GeneralBoxManager generalBoxManager;
+
     public int control=0;
     
     public string[] textLines;
@@ -35,6 +39,8 @@ public class TextBoxManager : MonoBehaviour
         {
             endAtLine = textLines.Length - 1;
         }
+        imageBoxManager= FindObjectOfType<AltavozBoxManager>();
+        imageBoxManager.Enable();
         text(0,2);
     }
 
@@ -72,8 +78,10 @@ public class TextBoxManager : MonoBehaviour
         {
             textBox.SetActive(false);
             textEnabled = false;
+            imageBoxManager.Disable();
+            evelynBoxManager.Disable();
+            generalBoxManager.Disable();
             control=1;
-
         }
     }
 
