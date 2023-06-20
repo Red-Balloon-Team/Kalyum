@@ -11,6 +11,7 @@ public class Detection : MonoBehaviour
     private List<Door> doorsInRange = new List<Door>();
     private List<NPCType> npcInRange= new List<NPCType>();
     private List<EchoChanger> echoInRange = new List<EchoChanger>();
+    private List<Button> buttonInRange = new List<Button>();
     public GameObject currentItem;
     private DynamiteFactory dynamiteFactory;
 
@@ -166,6 +167,24 @@ public class Detection : MonoBehaviour
         }
 
         return closestNPC;
+    }
+    private Button GetClosestButton()
+    {
+        Button closestButton = null;
+        float closestDistance = Mathf.Infinity;
+        Vector3 playerPosition = transform.position;
+
+        foreach (Button buton in buttonInRange)
+        {
+            float distance = Vector3.Distance(playerPosition, button.transform.position);
+            if (distance < closestDistance)
+            {
+                closestDistance = distance;
+                closestButton = button;
+            }
+        }
+
+        return closestButton;
     }
 
     private Door GetClosestDoor()
