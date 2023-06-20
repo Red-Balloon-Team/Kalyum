@@ -48,6 +48,7 @@ public class NPCType : MonoBehaviour
                 door.unlock=true;
                 itemText.HidePrompt();
                 isTalking = true;
+                hasTalked=true;
                 generalBoxManager.Enable();
                 timer.DisableTimer();
                 //Debug.Log(door.unlock);
@@ -59,6 +60,7 @@ public class NPCType : MonoBehaviour
                 textBoxManager.text(14, 14);
                 itemText.HidePrompt();
                 isTalking = true;
+                hasTalked=true;
                 generalBoxManager.Enable();
                 timer.DisableTimer();
             }
@@ -67,6 +69,7 @@ public class NPCType : MonoBehaviour
                 textBoxManager.text(17, 21);
                 itemText.HidePrompt();
                 isTalking = true;
+                hasTalked=true;
                 evelynBoxManager.Enable();
             }
         }
