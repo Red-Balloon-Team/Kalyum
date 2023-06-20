@@ -40,6 +40,8 @@ public class TextBoxManager : MonoBehaviour
             endAtLine = textLines.Length - 1;
         }
         imageBoxManager= FindObjectOfType<AltavozBoxManager>();
+        evelynBoxManager=FindObjectOfType<EvelynBoxManager>();
+        generalBoxManager= FindObjectOfType<GeneralBoxManager>();
         imageBoxManager.Enable();
         text(0,2);
     }
@@ -78,19 +80,18 @@ public class TextBoxManager : MonoBehaviour
         {
             textBox.SetActive(false);
             textEnabled = false;
-            if(imageBoxManager.isActiveAndEnabled)
+            if(imageBoxManager.isActive)
             {
                 imageBoxManager.Disable();
-            }else if(evelynBoxManager.isActiveAndEnabled)
+            }
+            else if(evelynBoxManager.isActive)
             {
                 evelynBoxManager.Disable();
-            }else if(generalBoxManager.isActiveAndEnabled)
+            }
+            else if(generalBoxManager.isActive)
             {
                 generalBoxManager.Disable();
             }
-            
-            
-            
             control=1;
         }
     }
