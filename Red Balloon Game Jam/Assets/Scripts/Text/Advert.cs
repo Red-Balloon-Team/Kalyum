@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AdvertCave : MonoBehaviour
 {
+    [SerializeField]public int id;
     private TextBoxManager textBoxManager;
     private NameBoxManager nameBoxManager;
     private AltavozBoxManager altavozBoxManager;
@@ -20,11 +21,22 @@ public class AdvertCave : MonoBehaviour
     {
         if (other.gameObject.GetComponent<PlayerController>())
         {
-            altavozBoxManager.Enable();
-            nameBoxManager.text(3,3);
-            textBoxManager.text(22,22); 
-            gameObject.SetActive(false);
-            //altavozBoxManager.Disable();
+            if(id==0)
+            {
+                altavozBoxManager.Enable();
+                nameBoxManager.text(3,3);
+                textBoxManager.text(22,22); 
+                gameObject.SetActive(false);
+            }
+            if(id==1)
+            {
+                altavozBoxManager.Enable();
+                nameBoxManager.text(3,3);
+                textBoxManager.text(24,24); 
+                gameObject.SetActive(false);
+            }
+            
+            
         }
     }
 }
