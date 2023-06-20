@@ -12,6 +12,7 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] public bool isStunned = false;
 
     private Animator animator;
+    private UnlockDoor unlockDoor;
     private NameBoxManager nameBoxManager;
     private TextBoxManager textBoxManager;
     private EnemyHuman enemyHuman;
@@ -21,7 +22,7 @@ public class EnemyHealth : MonoBehaviour
     readonly int STUN_HASH = Animator.StringToHash("Stunned");
     readonly int IDLE_HASH = Animator.StringToHash("Idle");
 
-    private int currentHealth;
+    public int currentHealth;
     // private Knockback knockback;
     // private Flash flash;
 
@@ -47,6 +48,12 @@ public class EnemyHealth : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        unlockDoor= FindObjectOfType<UnlockDoor>();
+        if(unlockDoor!=null)
+        {
+            unlockDoor.kills++;
+        }
+        
         currentHealth -= damage;
         if(id==1)
             {
@@ -97,7 +104,7 @@ public class EnemyHealth : MonoBehaviour
     //     DetectDeath();
     // }
 
-    private void DetectDeath()
+    public void DetectDeath()
     {
         if (currentHealth <= 0)
         {

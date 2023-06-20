@@ -6,6 +6,7 @@ public class EnemyHuman : MonoBehaviour
 {
     private Animator animator;
     private PlayerControls playerControls;
+    private UnlockDoor unlockDoor;
     private TextBoxManager textBoxManager;
     private NameBoxManager nameBoxManager;
     private EnemyHealth enemyHealth;
@@ -37,8 +38,14 @@ public class EnemyHuman : MonoBehaviour
     {
         if (isStunned)
         {
+            unlockDoor= FindObjectOfType<UnlockDoor>();
+            if(unlockDoor!=null)
+            {
+                unlockDoor.saved++;
+            }
             animator.SetTrigger(SAVED_HASH);//open_hash
             enemyHealth.isStunned = false;
+            
             if(enemyHealth.id==2)
             {
                 nameBoxManager.text(2,2);

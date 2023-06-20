@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1728111464588214048}
   m_Layer: 0
   m_Name: Maniqui Robot
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8782634430804329459
 SpriteRenderer:
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 63697497958104049acbd80a719000f5, type: 3}
+  m_Sprite: {fileID: -896349903, guid: 35c68a4085c86254ca358f41a12c9489, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb9a2019a9088554eb661f0e22780f4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 1
   startingHealth: 1
   deathVFXPrefab: {fileID: 6556613648683586146, guid: 5d6f00533588bff43b8ad494e5e350b9, type: 3}
   stunVFXPrefab: {fileID: 6556613648683586146, guid: 3e43793422ba5af42aebbfeedb295cf8, type: 3}
