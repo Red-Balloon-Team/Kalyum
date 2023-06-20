@@ -114,6 +114,8 @@ public class Detection : MonoBehaviour
             timer.EnableTimer();
             button = FindObjectOfType<Button>();
             button.PressButton();
+            timer.currentTime=20;
+            timer.stopCounting=false;
         }
         else if(interactingWithDynamite)
         {
