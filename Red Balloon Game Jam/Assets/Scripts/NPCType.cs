@@ -73,6 +73,7 @@ public class NPCType : MonoBehaviour
                 evelynBoxManager.Enable();
             }
         }
+        generalBoxManager.Disable();
         isTalking=false;
         //hasTalked=false;
     }
