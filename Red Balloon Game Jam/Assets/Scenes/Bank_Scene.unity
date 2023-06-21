@@ -3522,11 +3522,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3324359295732624828, guid: bc62e7b939135e64aa1515c0e32c7aef, type: 3}
       propertyPath: sceneToLoad
-      value: House_Scene
+      value: Boss_Scene
       objectReference: {fileID: 0}
     - target: {fileID: 3324359295732624828, guid: bc62e7b939135e64aa1515c0e32c7aef, type: 3}
       propertyPath: sceneTransitionName
-      value: HouseEntance2
+      value: BossEntrance
       objectReference: {fileID: 0}
     - target: {fileID: 5538641815604529078, guid: bc62e7b939135e64aa1515c0e32c7aef, type: 3}
       propertyPath: m_Name
@@ -3534,11 +3534,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6402819152069951161, guid: bc62e7b939135e64aa1515c0e32c7aef, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.91
+      value: -1.53
       objectReference: {fileID: 0}
     - target: {fileID: 6402819152069951161, guid: bc62e7b939135e64aa1515c0e32c7aef, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.58
+      value: -76.1
       objectReference: {fileID: 0}
     - target: {fileID: 7511654404442083275, guid: bc62e7b939135e64aa1515c0e32c7aef, type: 3}
       propertyPath: m_Size.x
@@ -3565,12 +3565,20 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8169815125514162755, guid: bc62e7b939135e64aa1515c0e32c7aef, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.025
+      objectReference: {fileID: 0}
+    - target: {fileID: 8169815125514162755, guid: bc62e7b939135e64aa1515c0e32c7aef, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.1625
+      objectReference: {fileID: 0}
+    - target: {fileID: 8169815125514162755, guid: bc62e7b939135e64aa1515c0e32c7aef, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 73.3
+      value: 2.18
       objectReference: {fileID: 0}
     - target: {fileID: 8169815125514162755, guid: bc62e7b939135e64aa1515c0e32c7aef, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 19.2
+      value: 8.98
       objectReference: {fileID: 0}
     - target: {fileID: 8169815125514162755, guid: bc62e7b939135e64aa1515c0e32c7aef, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3606,7 +3614,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8321558160270314890, guid: bc62e7b939135e64aa1515c0e32c7aef, type: 3}
       propertyPath: transitionName
-      value: ForestEntrance
+      value: BankEntrance
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
