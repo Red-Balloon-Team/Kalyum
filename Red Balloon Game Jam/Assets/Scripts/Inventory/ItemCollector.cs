@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ItemCollector : MonoBehaviour
 {
-    private WeaponInfo weaponInfo;
+    public WeaponInfo weaponInfo;
     private ItemText pickupPrompt;
     private TextBoxManager textBoxManager;
     private NameBoxManager nameBoxManager;
