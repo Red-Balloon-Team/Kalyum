@@ -18,7 +18,6 @@ public class ActiveInventory : MonoBehaviour
         {
             weaponInfo.isInInventory = false;
         }
-
     }
 
     private void Start()

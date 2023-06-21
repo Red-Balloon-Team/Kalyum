@@ -40,6 +40,7 @@ public class ItemCollector : MonoBehaviour
         {
             if (weaponInfo != null)
             {
+                Debug.Log(weaponInfo.weaponIndex);
                 weaponInfo.isInInventory = true;
                 activeInventory.ActivateInventorySlot(weaponInfo.weaponIndex);
                 activeInventory.ToggleActiveHighlight(weaponInfo.weaponIndex);
@@ -62,6 +63,12 @@ public class ItemCollector : MonoBehaviour
                     imageBoxManager.Enable();
                     nameBoxManager.text(2,2);
                     textBoxManager.text(23,23);
+                }
+                if (weaponInfo.weaponName == "Tarjeta")
+                {
+                    imageBoxManager.Enable();
+                    nameBoxManager.text(2,2);
+                    textBoxManager.text(26,26);
                 }
                 
             }
