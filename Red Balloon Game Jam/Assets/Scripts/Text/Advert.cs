@@ -8,6 +8,8 @@ public class AdvertCave : MonoBehaviour
     private TextBoxManager textBoxManager;
     private NameBoxManager nameBoxManager;
     private AltavozBoxManager altavozBoxManager;
+    private InventorySlot inventorySlot;
+    private Cave cave;
     
     
     void Start()
@@ -23,10 +25,20 @@ public class AdvertCave : MonoBehaviour
         {
             if(id==0)
             {
-                altavozBoxManager.Enable();
-                nameBoxManager.text(3,3);
-                textBoxManager.text(22,22); 
-                gameObject.SetActive(false);
+                inventorySlot = FindObjectOfType<InventorySlot>();
+                if (inventorySlot.GetWeaponInfo().weaponName == "Dinamita")
+                {
+                    cave = FindObjectOfType<Cave>();
+                    cave.OpenDoor();
+                }
+                else
+                {
+                    altavozBoxManager.Enable();
+                    nameBoxManager.text(3, 3);
+                    textBoxManager.text(22, 22);
+                    gameObject.SetActive(false);
+                }
+                
             }
             if(id==1)
             {
