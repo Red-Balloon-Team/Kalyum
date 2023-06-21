@@ -35,8 +35,13 @@ public class AdvertCave : MonoBehaviour
                 textBoxManager.text(24,24); 
                 gameObject.SetActive(false);
             }
-            
-            
+            if(id==2)
+            {
+                altavozBoxManager.Enable();
+                nameBoxManager.text(3,3);
+                textBoxManager.text(25,25); 
+                gameObject.SetActive(false);
+            }
         }
     }
 }

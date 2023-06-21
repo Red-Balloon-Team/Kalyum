@@ -22,4 +22,5 @@ Encontrarás desafíos en tu camino en los que será necesario usar “ECHO” p
 Ya estás preparado para partir. El futuro de la humanidad depende de ti. La salida está a tu derecha. Mucha suerte!!!
 No es posible entrar a la cueva, busca una una fábrica de explosivos.
 Utiliza este explosivo para abrir puertas cerradas.
-Este edificio parece estar abandonado
+Este edificio parece estar abandonado.
+No puedes abrir la puerta sin la clave.
