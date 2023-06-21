@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class Detection : MonoBehaviour
@@ -22,6 +23,8 @@ public class Detection : MonoBehaviour
     private bool interactingWithButton = false;
     private bool interactingWithDynamite = false;
     private bool interactingWithNumPad = false;
+    private bool interactingWithCable = false;
+
 
     private bool passwordCorrect = false;
 
@@ -86,6 +89,15 @@ public class Detection : MonoBehaviour
             interactingWithDynamite = true;
             interactingWithNumPad = false;
         }
+        else if (collision.CompareTag("cable"))
+        {
+            pickupPrompt = collision.GetComponentInChildren<ItemText>();
+            pickupPrompt.CablePrompt();
+            currentItem = collision.gameObject;
+            interactingWithButton = false;
+            interactingWithCable = true;
+            interactingWithNumPad = false;
+        }
         else if (collision.CompareTag("Numpad"))
         {
             pickupPrompt = collision.GetComponentInChildren<ItemText>();
@@ -117,6 +129,12 @@ public class Detection : MonoBehaviour
             pickupPrompt.HidePrompt();
             currentItem = null;
             interactingWithDynamite=false;
+        }
+        else if (collision.CompareTag("cable"))
+        {
+            pickupPrompt.HidePrompt();
+            currentItem = null;
+            interactingWithCable = false;
         }
         else if (collision.CompareTag("Numpad") && !passwordCorrect)
         {
@@ -170,6 +188,13 @@ public class Detection : MonoBehaviour
             dynamiteFactory = FindObjectOfType<DynamiteFactory>();
             dynamiteFactory.PressButton();
             dynamiteFactory.CreateDynamite();
+        }
+        else if (interactingWithCable)
+        {
+            dynamiteFactory = FindObjectOfType<DynamiteFactory>();
+            dynamiteFactory.PressButton();
+            StartCoroutine(SceneRoutine());
+
         }
         else if (interactingWithNumPad)
         {
@@ -264,5 +289,11 @@ public class Detection : MonoBehaviour
         }
 
         return closestEcho;
+    }
+
+    private IEnumerator SceneRoutine()
+    {
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene("credits");
     }
 }

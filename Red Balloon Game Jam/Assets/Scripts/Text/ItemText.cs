@@ -66,6 +66,15 @@ public class ItemText : MonoBehaviour
         Vector3 promptPosition = new Vector3(targetPosition.x - 2.0f, targetPosition.y + 1.5f, targetPosition.z);
         promptText.rectTransform.position = promptPosition;
     }
+    public void CablePrompt()
+    {
+        promptText.text = "Presiona E para cortar el cable";
+        canvas.gameObject.SetActive(true);
+
+        Vector3 targetPosition = targetTransform.position;
+        Vector3 promptPosition = new Vector3(targetPosition.x - 0.2f, targetPosition.y + 1.5f, targetPosition.z);
+        promptText.rectTransform.position = promptPosition;
+    }
     public void EchoPrompt()
     {
         promptText.text = "Presiona E para cambiar de dimension";

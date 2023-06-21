@@ -56,5 +56,6 @@ public class Password : MonoBehaviour
         index = 0;
         input = null;
         UiText.text = input;
+        gameObject.SetActive(false);
     }
 }

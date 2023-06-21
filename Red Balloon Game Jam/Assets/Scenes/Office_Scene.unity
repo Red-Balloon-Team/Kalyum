@@ -5037,7 +5037,7 @@ PrefabInstance:
     - target: {fileID: 6404177278842440556, guid: b58ffbc8eebf85c4d849c0ba082be966, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 9951d615dedf3a149b5a7023a8042cd0, type: 2}
+      objectReference: {fileID: 9100000, guid: a9a134cc3acabb84f831940cdce6f944, type: 2}
     - target: {fileID: 7284864490730762033, guid: b58ffbc8eebf85c4d849c0ba082be966, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -5125,7 +5125,7 @@ PrefabInstance:
     - target: {fileID: 7852953392388519274, guid: b58ffbc8eebf85c4d849c0ba082be966, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -1114484031, guid: 9e9fb615f8ca8094fa7d76b24027286e, type: 3}
+      objectReference: {fileID: 1188204735, guid: 605bc85f1bb35cd49ad40a7704619772, type: 3}
     - target: {fileID: 7852953392388519274, guid: b58ffbc8eebf85c4d849c0ba082be966, type: 3}
       propertyPath: m_SortingOrder
       value: 0
@@ -5265,7 +5265,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc62e7b939135e64aa1515c0e32c7aef, type: 3}
---- !u!43 &1747347907
+--- !u!43 &1672047292
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
