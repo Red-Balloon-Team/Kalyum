@@ -8,6 +8,7 @@ public class Password : MonoBehaviour
 {
     public UnityEngine.Rendering.Universal.Light2D light2D;
     public Canvas canvas;
+    private Door door;
     private string password = "4781";
     private string input = null;
     private int index = 0;
@@ -40,6 +41,9 @@ public class Password : MonoBehaviour
             gameObject.SetActive(false);
             lightEffect = FindObjectOfType<LightEffect>();
             lightEffect.gameObject.SetActive(false);
+            door= FindObjectOfType<Door>();
+            door.unlock=true;
+            door.OpenDoor2();
         }
         else
         {
