@@ -256,7 +256,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   videoPlayer: {fileID: 694338602}
-  sceneName: TutorialScene
+  sceneName: CinematicaScene
   startButton: {fileID: 793618296}
 --- !u!1 &793618296
 GameObject:

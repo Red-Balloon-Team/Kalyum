@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 81b9a8885e467b748b30606d93d9338b
+guid: a68f603df8503c148a57136a57808bf5
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: npcidle_0
+      name: robotdisparo_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e0537195d24454c408b78996dece30f9
-      internalID: 933722686
+      spriteID: 3491542fdffdec6459465994b807209d
+      internalID: 596304656
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: npcidle_1
+      name: robotdisparo_1
       rect:
         serializedVersion: 2
         x: 32
@@ -145,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bce36b33e3189a344be9f004c8e8989d
-      internalID: -1468770439
+      spriteID: fec8d6f2c1654a445a0b09a3406c060e
+      internalID: 796917402
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: npcidle_2
+      name: robotdisparo_2
       rect:
         serializedVersion: 2
         x: 64
@@ -166,14 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0f34ac6b0f0ed784583659bde9307b6d
-      internalID: 1380956575
+      spriteID: f79374a76234f5049be2dfdff132829f
+      internalID: 902308567
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: npcidle_3
+      name: robotdisparo_3
       rect:
         serializedVersion: 2
         x: 96
@@ -187,8 +187,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d77f82d312169514bb692ea864a4d74e
-      internalID: -210910463
+      spriteID: 0c3350ef36950b0469ed9d891181e4eb
+      internalID: 1092061324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotdisparo_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff5a2a5bff353524fb85b0ebaa29ed49
+      internalID: 942166637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotdisparo_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a22857dd1853bd4b92ab376fc96340c
+      internalID: -102596678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotdisparo_6
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bda4ff64dc315094ca669a5bd18fce1f
+      internalID: 281478867
       vertices: []
       indices: 
       edges: []
@@ -204,10 +267,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      npcidle_0: 933722686
-      npcidle_1: -1468770439
-      npcidle_2: 1380956575
-      npcidle_3: -210910463
+      robotdisparo_0: 596304656
+      robotdisparo_1: 796917402
+      robotdisparo_2: 902308567
+      robotdisparo_3: 1092061324
+      robotdisparo_4: 942166637
+      robotdisparo_5: -102596678
+      robotdisparo_6: 281478867
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

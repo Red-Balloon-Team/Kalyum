@@ -90,7 +90,7 @@ public class ItemText : MonoBehaviour
         canvas.gameObject.SetActive(true);
 
         Vector3 targetPosition = targetTransform.position;
-        Vector3 promptPosition = new Vector3(targetPosition.x - 0.2f, targetPosition.y + 1.5f, targetPosition.z);
+        Vector3 promptPosition = new Vector3(targetPosition.x - 1.0f, targetPosition.y + 1.5f, targetPosition.z);
         promptText.rectTransform.position = promptPosition;
     }
 

@@ -53,4 +53,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/credits.unity
     guid: 1b43ebbc5fed94942aef1e476f39acec
+  - enabled: 1
+    path: Assets/Scenes/CinematicaScene.unity
+    guid: 107b155bf7bd28344864ba05fe4053bf
   m_configObjects: {}
