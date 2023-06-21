@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/LogoScene.unity
+    guid: e98f48e3245ced7418d36efb08ede083
+  - enabled: 1
     path: Assets/Scenes/TutorialScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
@@ -44,4 +47,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Cave_Room2.unity
     guid: b742f38cfa850c746aee8a318b491eef
+  - enabled: 1
+    path: Assets/Scenes/IntroScene.unity
+    guid: 3aa7b4cc47381d4428315ba559782daf
   m_configObjects: {}
