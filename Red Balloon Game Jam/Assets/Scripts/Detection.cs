@@ -163,6 +163,7 @@ public class Detection : MonoBehaviour
             button.PressButton();
             timer.currentTime=40;
             timer.stopCounting=false;
+            interactingWithButton= false;
         }
         else if(interactingWithDynamite)
         {
