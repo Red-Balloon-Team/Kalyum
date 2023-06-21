@@ -19,7 +19,8 @@ public class Cave : MonoBehaviour
     public void OpenDoor()
     {
         animator.SetTrigger(OPEN_HASH);
-        itemText.HidePrompt();  
+        itemText.HidePrompt();
+        DestroyColliders();
     }
 
     private void DestroyColliders()
