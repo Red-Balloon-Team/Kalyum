@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    [SerializeField] private int id=0;
+    [SerializeField] public int id=0;
     private Collider2D[] colliders;
     private Animator animator;
     private ItemText itemText;
@@ -22,12 +22,22 @@ public class Door : MonoBehaviour
 
     public void OpenDoor()
     {
-        if ((!isOpen && id!=1)||(id==1 && !isOpen && unlock))
+        if ((!isOpen && id!=1 && id!=2)||(id==1 && !isOpen && unlock))
         {
             animator.SetTrigger(OPEN_HASH);
             isOpen = true;
             itemText.HidePrompt();
+        }else if(id==2)
+        {
+
         }
+    }
+    public void OpenDoor2()
+    {
+            animator.SetTrigger(OPEN_HASH);
+            isOpen = true;
+            itemText.HidePrompt();
+        
     }
 
     private void DestroyColliders()

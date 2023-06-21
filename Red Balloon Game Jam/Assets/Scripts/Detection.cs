@@ -15,7 +15,9 @@ public class Detection : MonoBehaviour
     public GameObject currentItem;
     private DynamiteFactory dynamiteFactory;
 
+    private Door door;
     public GameObject password;
+    private Password contrasena;
 
     private bool interactingWithButton = false;
     private bool interactingWithDynamite = false;
@@ -28,6 +30,8 @@ public class Detection : MonoBehaviour
 
     private void Awake()
     {
+        contrasena=FindObjectOfType<Password>();
+        door=FindObjectOfType<Door>();
         timer=FindObjectOfType<Timer>();
         nPCType = FindObjectOfType<NPCType>();
         playerControls = new PlayerControls();
@@ -57,10 +61,12 @@ public class Detection : MonoBehaviour
         }
         else if (collision.CompareTag("Door"))
         {
-            Door door = collision.GetComponent<Door>();
-            doorsInRange.Add(door);
-            pickupPrompt = door.GetComponentInChildren<ItemText>();
-            pickupPrompt.DoorPrompt();
+            //contrasena=password.GetComponentInChildren<Password>();
+            Door door= collision.GetComponent<Door>();
+                doorsInRange.Add(door);
+                pickupPrompt = door.GetComponentInChildren<ItemText>();
+                pickupPrompt.DoorPrompt();  
+           
         }
         else if (collision.CompareTag("Button"))
         {
