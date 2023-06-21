@@ -12,6 +12,7 @@ public class AdvertCave : MonoBehaviour
     private Cave cave;
     private ItemCollector itemCollector;
     private bool isDinamiteInInventory; // Variable para comprobar si el ítem "dinamita" está en el inventario
+    private bool isTargetInInventory;
 
     void Start()
     {
@@ -60,6 +61,29 @@ public class AdvertCave : MonoBehaviour
                 nameBoxManager.text(3, 3);
                 textBoxManager.text(25, 25);
                 gameObject.SetActive(false);
+            }
+            else if (id == 3)
+            {
+                itemCollector = FindObjectOfType<ItemCollector>();
+                
+                isTargetInInventory = itemCollector.weaponInfo.isInInventory && itemCollector.weaponInfo.weaponName == "Tarjeta";
+
+                Debug.Log(isTargetInInventory);
+                Debug.Log(itemCollector.weaponInfo.weaponName);
+                Debug.Log(itemCollector.weaponInfo.isInInventory);
+
+                if (isTargetInInventory)
+                {
+                    cave = FindObjectOfType<Cave>();
+                    cave.OpenDoor();
+                }
+                else
+                {
+                    altavozBoxManager.Enable();
+                    nameBoxManager.text(3, 3);
+                    textBoxManager.text(27, 27);
+                    // gameObject.SetActive(false);
+                }
             }
         }
     }

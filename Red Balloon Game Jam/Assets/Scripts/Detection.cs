@@ -101,6 +101,7 @@ public class Detection : MonoBehaviour
             echoInRange.Add(echoChanger);
             pickupPrompt = echoChanger.GetComponentInChildren<ItemText>();
             pickupPrompt.EchoPrompt();
+            interactingWithDynamite=false;
         }
     }
 
@@ -115,11 +116,13 @@ public class Detection : MonoBehaviour
         {
             pickupPrompt.HidePrompt();
             currentItem = null;
+            interactingWithDynamite=false;
         }
         else if (collision.CompareTag("Numpad") && !passwordCorrect)
         {
             pickupPrompt.HidePrompt();
             currentItem = null;
+            interactingWithNumPad=false;
         }
         else if (collision.CompareTag("Door"))
         {
@@ -132,6 +135,7 @@ public class Detection : MonoBehaviour
             EchoChanger echoChanger = collision.GetComponent<EchoChanger>();
             pickupPrompt.HidePrompt();
             echoInRange.Remove(echoChanger);
+            interactingWithDynamite=false;
         }
         else if (collision.CompareTag("NPC"))
         {
@@ -183,6 +187,8 @@ public class Detection : MonoBehaviour
             closestEcho.EchoChangeScene();
         }
         interactingWithButton=false;
+        interactingWithDynamite= false;
+        interactingWithNumPad= false;
     }
     private NPCType GetClosestNPC()
     {
