@@ -24,3 +24,4 @@ No es posible entrar a la cueva, busca una una fábrica de explosivos.
 Utiliza este explosivo para abrir puertas cerradas.
 Este edificio parece estar abandonado.
 No puedes abrir la puerta sin la clave.
+Usa esta tarjeta para acceder en accesos privados.
