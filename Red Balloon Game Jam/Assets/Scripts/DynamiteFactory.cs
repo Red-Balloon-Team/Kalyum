@@ -39,9 +39,6 @@ public class DynamiteFactory : MonoBehaviour
             if (Vector3.Distance(dynamite.position, initialPosition) >= distance)
             {
                 createDynamite = false;
-            }
-            else if (Vector3.Distance(dynamite.position, initialPosition) <= distance && !stop)
-            {
                 StopMovement();
             }
         }
@@ -54,6 +51,7 @@ public class DynamiteFactory : MonoBehaviour
 
     public void StopMovement()
     {
+        Debug.Log("Stop");
         animator.SetTrigger(IDLE_HASH);
         stop = true;
     }

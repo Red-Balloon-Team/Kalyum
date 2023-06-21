@@ -56,7 +56,6 @@ public class ActiveInventory : MonoBehaviour
     {
         Transform inventorySlot = this.transform.GetChild(indexNum);
         inventorySlot.GetChild(1).gameObject.SetActive(true);
-  
     }
 
     private void ChangeActiveWeapon()

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b4b08eda80991f4596916461f98a1bb, type: 3}
   m_Name: Dynamite
   m_EditorClassIdentifier: 
-  weaponPrefab: {fileID: 0}
+  weaponPrefab: {fileID: 729794251247695739, guid: b31c8f3da61502d4ba4449e40a516d8d, type: 3}
   weaponCooldown: 0
   weaponDamage: 0
   weaponRange: 0
